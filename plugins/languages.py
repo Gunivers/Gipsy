@@ -14,7 +14,7 @@ class Languages(commands.Cog):
     def __init__(self, bot: Gunibot):
         self.bot = bot
         self.file = "languages"
-        self.languages = ['fr', 'en']
+        self.languages = ['fr', 'en', 'fr_wesh']
         self.config_options = ['language']
 
     async def tr(self, ctx, key: str, **kwargs):

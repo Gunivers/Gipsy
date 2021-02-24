@@ -366,7 +366,7 @@ class Groups(commands.Cog):
             await ctx.send_help("group admin")
 
     @group_admin_main.command(name="list")
-    @commands.Cooldown(1, 15, commands.BucketType.user)
+    @commands.cooldown(1, 15, commands.BucketType.user)
     async def group_admin_list(self, ctx: MyContext, group: GroupConverter):
         """Give the userlist of your group"""
         # if user is not the group owner and neither a server admin, we abort

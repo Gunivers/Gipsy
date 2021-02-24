@@ -211,7 +211,7 @@ CONFIG_OPTIONS: Dict[str, Dict[str, Any]] = {
     #     'command': 'subcommand of the config command',
     # },
     "prefix": {
-        'default': "/",
+        'default': "&",
         'type': 'prefix',
         'command': 'prefix',
     },
@@ -357,6 +357,36 @@ CONFIG_OPTIONS: Dict[str, Dict[str, Any]] = {
         'default': None,
         'type': 'text',
         'command': 'levelup_message'
+    },
+    "levelup_reaction": {
+        'default': False,
+        'type': 'boolean',
+        'command': 'levelup_reaction',
+    },
+    "reaction_emoji": {
+        'default': None,
+        'type': 'emojis',
+        'command': 'giveaways_emoji',
+    },
+    "group_allowed_role": {
+        'default': None,
+        'type': 'roles',
+        'command': 'group_allowed_role',
+    },
+    "group_channel_category": {
+        'default': None,
+        'type': 'categories',
+        'command': 'group_channel_category',
+    },
+    "group_over_role": {
+        'default': None,
+        'type': 'roles',
+        'command': 'group_over_role',
+    },
+    "max_group": {
+        'default': 5,
+        'type': 'int',
+        'command': 'max_group',
     }
 }
 

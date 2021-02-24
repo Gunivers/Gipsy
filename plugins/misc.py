@@ -20,7 +20,7 @@ class Misc(commands.Cog):
         if user:
             message = await self.bot._(ctx.guild.id, 'misc.cookie.give', to=user.mention, giver=ctx.author.mention)
         else:
-            message = await self.bot._(ctx.guild.id, 'misc.cookie.self', to=user.mention)
+            message = await self.bot._(ctx.guild.id, 'misc.cookie.self', to=ctx.author.mention)
 
         # Créer un webhook qui prend l'apparence d'un Villageois
         webhook: discord.Webhook = await ctx.channel.create_webhook(name=f"Villager #{random.randint(1, 9)}")

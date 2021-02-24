@@ -1,11 +1,12 @@
 import asyncio
 import re
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Union
 import typing
 import discord
 import time
 from math import ceil
 from discord.ext import commands
+import emoji
 from discord.ext.commands.core import command
 from utils import Gunibot, MyContext
 
@@ -25,7 +26,7 @@ class XP(commands.Cog):
         self.xp_channels_cache = dict()  # no-xp channels
         self.embed_color = discord.Colour(0xffcf50)
         self.config_options = ['enable_xp', 'noxp_channels',
-                               'levelup_channel', 'levelup_message']
+                               'levelup_channel', 'levelup_message','levelup_reaction','reaction_emoji']
     
     async def _create_config(self, ctx: MyContext, mentions: bool=False) -> List[Tuple[str,str]]:
         """Create a list of (key,value) for the /config command"""
@@ -182,17 +183,31 @@ class XP(commands.Cog):
         return [lvl, next_step, ceil(((lvl-1)*125/7)**(20/13))]
 
     async def send_levelup(self, msg: discord.Message, lvl: int):
-        """Send the levelup message"""
-        destination = await self.get_lvlup_chan(msg)
-        # if no channel or not enough permissions: abort
-        if destination is None or (not msg.channel.permissions_for(msg.guild.me).send_messages):
-            return
-        text = self.bot.server_configs[msg.guild.id]['levelup_message']
-        if text is None or len(text) == 0:
-            text = await self.bot._(msg.channel, 'xp.default_levelup')
-        await destination.send(text.format_map(self.bot.SafeDict(user=msg.author.mention,
-                                                                 level=lvl[0],
-                                                                 username=msg.author.display_name)))
+        """Send the levelup message or react with the reaction"""
+        config = self.bot.server_configs[msg.guild.id]
+        print(config['levelup_reaction'])
+        if config['levelup_reaction']:
+            if config['reaction_emoji'] is None:
+                await msg.add_reaction("💫")
+            else:
+                def emojis_convert(s_emoji: str, bot_emojis: List[discord.Emoji]) -> Union[str, discord.Emoji]:
+                    if s_emoji.isnumeric():
+                        d_em = discord.utils.get(bot_emojis, id=int(s_emoji))
+                        if d_em is not None:
+                            return d_em
+                    return emoji.emojize(s_emoji, use_aliases=True)
+                await msg.add_reaction(emojis_convert(config['reaction_emoji'],self.bot.emojis))
+        else:
+            destination = await self.get_lvlup_chan(msg)
+            # if no channel or not enough permissions: abort
+            if destination is None or (not msg.channel.permissions_for(msg.guild.me).send_messages):
+                return
+            text = config['levelup_message']
+            if text is None or len(text) == 0:
+                text = await self.bot._(msg.channel, 'xp.default_levelup')
+            await destination.send(text.format_map(self.bot.SafeDict(user=msg.author.mention,
+                                                                     level=lvl[0],
+                                                                     username=msg.author.display_name)))
 
     async def give_rr(self, member: discord.Member, level: int, rr_list: List[Dict[str, int]], remove: bool = False) -> int:
         """Give (and remove?) roles rewards to a member

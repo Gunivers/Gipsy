@@ -13,7 +13,7 @@ from utils import Gunibot, setup_logger
 
 
 initial_extensions = ["admin", "timeclass", "antikikoo", "contact", "errors", "general", "sconfig", "configManager", "voices",
-                      "logs", "perms", "welcome", "thanks", "groupRoles", "misc", "messageManager", "giveaways", "languages", "hypesquad", "xp"]
+                      "logs", "perms", "welcome", "thanks", "groupRoles", "misc", "messageManager", "giveaways", "languages", "hypesquad", "xp", "groups"]
 
 
 def main():

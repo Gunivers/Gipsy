@@ -67,3 +67,12 @@ CREATE TABLE IF NOT EXISTS `roles_levels` (
   PRIMARY KEY (guild, role)
 );
 CREATE INDEX IF NOT EXISTS idx_rolesrewards_guild ON `roles_levels` (`guild`);
+
+CREATE TABLE IF NOT EXISTS `groups` (
+  `guild` BIGINT NOT NULL,
+  `roleID` BIGINT NOT NULL,
+  `ownerID` BIGINT NOT NULL,
+  `channelID` BIGINT DEFAULT NULL,
+  `privacy` BOOLEAN NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS idx_groups_guild ON `groups` (`guild`);

@@ -41,12 +41,12 @@ class Errors(commands.Cog):
         elif isinstance(error, CheckException):
             return await ctx.send(await self.bot._(ctx.channel, "errors.custom_checks."+error.id))
         elif isinstance(error, (commands.BadArgument, commands.BadUnionArgument)):
-            raw_error = str(error).replace('@eveyrone', '@​everyone').replace('@here', '@​here')
-            if str(error) == "Unknown argument":
+            raw_error = str(error)
+            if raw_error == "Unknown argument":
                 return await ctx.send(await self.bot._(ctx.channel, "errors.unknown-arg"))
-            elif str(error) == "Unknown dependency action type":
+            elif raw_error == "Unknown dependency action type":
                 return await ctx.send(await self.bot._(ctx.channel, "errors.invalid-dependency"))
-            elif str(error) == "Unknown dependency trigger type":
+            elif raw_error == "Unknown dependency trigger type":
                 return await ctx.send(await self.bot._(ctx.channel, "errors.invalid-trigger"))
             # Could not convert "limit" into int. OR Converting to "int" failed for parameter "number".
             r = re.search(
@@ -89,6 +89,10 @@ class Errors(commands.Cog):
             r = re.search(r'Message \"([^\"]+)\" not found', raw_error)
             if r is not None:
                 return await ctx.send(await self.bot._(ctx.channel, "errors.unknown-message", m=r.group(1)))
+            # Group "twitter" not found.
+            r = re.search(r'Group \"([^\"]+)\" not found', raw_error)
+            if r is not None:
+                return await ctx.send(await self.bot._(ctx.channel, "errors.unknown-group", c=r.group(1)))
             # Too many text channels
             if raw_error == 'Too many text channels':
                 return await ctx.send(await self.bot._(ctx.channel, "errors.too-many-text-channels"))

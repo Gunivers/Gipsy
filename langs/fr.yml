@@ -41,6 +41,7 @@ fr:
     unknown-role: "Impossible de trouver le rôle %{r} :confused:"
     unknown-server: Serveur introuvable
     unknown-user: "Impossible de trouver l'utilisateur %{u} :confused:"
+    unknown-group: "Impossible de trouver le groupe %{g} :confused:"
   general:
     stats:
       title: "Statistiques du bot"
@@ -110,7 +111,48 @@ fr:
     dep-notfound: Impossible de trouver une rôle-liaison avec cet identifiant.\nVous pouvez obtenir l'identifiant d'une liaison avec la commande `%{p}rolelink list`
     infinite: "Oups, il semble que cette dépendance puisse entraîner une boucle infinie avec au moins la dépendance suivante : \"%{dep}\"\nSi vous êtes sûr de vouloir continuer, entrez 'oui' dans les %{t} prochaines secondes"
     list: "Liste de vos rôles-liaisons :"
-    no-dep: Vous n'avez aucune dépendance de configurée pour le moment.\nUtilisez la commande `%{p}rolelink create` pour en ajouter
+    no-dep: "Vous n'avez aucune dépendance de configurée pour le moment.\nUtilisez la commande `%{p}rolelink create` pour en ajouter"
+  groups:
+    list: "Liste des groupes du serveur :"
+    created: "Vous avez créé le groupe %{name}"
+    delete: "Vous avez supprimé le groupe %{name}"
+    registred: "Vous avez enregistré le groupe %{name}"
+    unregistred: "Vous avez supprimé le groupe %{name} du système (le role n'a pas été supprimé)"
+    update_owner: "Vous avez donné le groupe %{group} à %{owner}"
+    update_name: "Vous avez renommé le groupe %{group} en %{name}"
+    update_privacy: "Vous avez passé le groupe %{group} %{privacy}"
+    join: "Vous avez rejoind le groupe %{name}"
+    leave: "Vous avez quitté le groupe %{name}"
+    joinbyforce: "Vous avez forcé %{user} à rejoindre %{name}"
+    leavebyforce: "Vous avez expulsé %{user} de %{name}"
+    give: "{user}, {owner} veut vous donner le groupe %{group}"
+    channel_delete: "Vous avez supprimé le salon pour le groupe %{group}"
+    channel-create: "Vous avez créé le salon pour le groupe %{name}"
+    channel-registred: "Vous avez enregistré le salon pour le groupe %{name}"
+    channel_unregister: "Vous avez supprimé le salon du système pour le groupe %{group} (le salon n'a pas été supprimé)"
+    error:
+      no-group: "Vous n'avez aucun groupe créé pour le moment.\nUtilisez la commande `%{p}group add` pour en créer"
+      no-delete: "Impossible de trouver un groupe avec cet identifiant ou ce nom"
+      no-unregistred: "Impossible de trouver un groupe avec cet identifiant ou ce nom"
+      no-update: "Impossible de trouver un groupe avec cet identifiant ou ce nom. Vérifier aussi si vous êtes bien propriétaire de ce groupe ou bien que vous avez la permission ADMINISTRATEUR"
+      exist: "Un groupe avec le nom {name} existe déja"
+      tomanygroup: "Vous possédez trop de groupes"
+      not-owner: "Vous devez être propriétaire de ce groupe ou avoir la permission ADMINISTRATEUR"
+      not-admin: "Vous devez avoir la permission ADMINISTRATEUR"
+      tomanygroupuser: "{user} possède trop de groupes"
+      timeout: "{user} n'as pas répondu donc la modification de propriétaire a été annulé"
+      badarg: "Vous devez indiquez \"public\" ou \"private\""
+      no-exist: "Ce groupe n'existe pas"
+      private: "Ce groupe est privé"
+      already-in: "Vous êtes déja dans ce groupe"
+      not-in: "Vous n'êtes pas dans ce groupe"
+      owner: "Vous êtes propriétaire de ce groupe et donc ne pouvez pas quitter ce groupe"
+      already-in-user: "Ce membre est déja dans ce groupe"
+      not-in-user: "Ce membre n'est pas dans ce groupe"
+      no-channel: "Ce group ne possède pas de salon"
+      no-delete-channel: "Impossible de trouver un groupe avec cet identifiant ou ce nom"
+      channel-exist: "Ce groupe possède déja un salon"
+      no-category: "Vous devez d'abord configuré une catégorie pour les salons de groupes : `%{p}config group_channel_category`"
   hypesquad:
     no-role: Vous n'avez aucun rôle de maison configuré !
     forbidden: Oups, une erreur est survenue. Veuillez vérifier mes permissions !
@@ -223,7 +265,7 @@ fr:
   misc:
     cookie:
       give: "Voilà pour vous %{to}: :cookie:\nDe la part de %{giver}"
-      selfcookie: "Voilà pour vous %{to}: :cookie:"
+      self: "Voilà pour vous %{to}: :cookie:"
     flipacoin:
       heads: "Face !"
       tails: "Pile !"
@@ -326,6 +368,7 @@ fr:
       VoiceChannels: Salons vocaux
       Welcome: Bienvenue
       XP: Niveaux d'XP
+      Groups: Groupes
   thanks:
     add:
       done: "%{user} a bien reçu votre remerciement. Il a maintenant %{amount} remerciements actifs !"

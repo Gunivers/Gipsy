@@ -152,6 +152,8 @@ class GroupRoles(commands.Cog):
     async def check_got_roles(self, member: discord.Member, roles: List[discord.Role]):
         """Trigger dependencies based on granted roles"""
         actions = self.db_get_config(member.guild.id)
+        if actions == None:
+            return
         for action in actions:
             if action.trigger.type == 0:  # if trigger is 'get-one'
                 for r in roles:
@@ -171,6 +173,8 @@ class GroupRoles(commands.Cog):
     async def check_lost_roles(self, member: discord.Member, roles: List[discord.Role]):
         """Trigger dependencies based on revoked roles"""
         actions = self.db_get_config(member.guild.id)
+        if actions == None:
+            return
         for action in actions:
             if action.trigger.type == 2:  # if trigger is 'loose-one'
                 for r in roles:
@@ -222,7 +226,7 @@ class GroupRoles(commands.Cog):
         if ctx.subcommand_passed is None:
             await ctx.send_help('rolelink')
 
-    @rolelink_main.command(name="create")
+    @rolelink_main.command(name="add")
     @commands.check(checks.is_server_manager)
     async def rolelink_create(self, ctx: commands.Context, action: ActionType, target_role: discord.Role, when: args.constant('when'), trigger: TriggerType, trigger_roles: commands.Greedy[discord.Role]):
         """Create a new roles-link
@@ -263,7 +267,7 @@ class GroupRoles(commands.Cog):
             txt += action.to_str() + "\n"
         await ctx.send(txt)
 
-    @rolelink_main.command(name="delete")
+    @rolelink_main.command(name="remove")
     @commands.check(checks.is_server_manager)
     async def rolelink_delete(self, ctx: commands.Context, id: int):
         """Delete one of your roles-links"""

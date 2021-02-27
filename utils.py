@@ -4,7 +4,7 @@ import logging
 import sqlite3
 import json
 import sys
-from typing import Any, Callable, Coroutine, Dict
+from typing import Any, Callable, Coroutine, Dict, Union, List
 
 
 class MyContext(commands.Context):
@@ -46,7 +46,7 @@ class Gunibot(commands.bot.AutoShardedBot):
         super().__init__(command_prefix=self.get_prefix, case_insensitive=case_insensitive, status=status,
                          allowed_mentions=ALLOWED, intents=intents)
         self.log = logging.getLogger("runner") # logs module
-        self.beta = beta # if the bot is in beta mode
+        self.beta: bool = beta # if the bot is in beta mode
         self.database = sqlite3.connect('data/database.db') # database connection
         self.database.row_factory = sqlite3.Row
         self._update_database_structure()
@@ -101,6 +101,28 @@ class Gunibot(commands.bot.AutoShardedBot):
         self.config[key] = value
         with open("config.json", 'w', encoding='utf-8') as f:
             json.dump(self.config, f, indent=4)
+    
+    def db_query(self, query: str, args: Union[tuple, dict], fetchone: bool=False) -> Union[int, List[dict], dict]:
+        """Do any query to the bot database
+        If SELECT, it will return a list of results, or only the first result (if fetchone)
+        For any other query, it will return the affected row ID"""
+        cursor = self.database.cursor()
+        try:
+            cursor.execute(query, args)
+            if query.startswith("SELECT"):
+                if fetchone:
+                    result = dict(cursor.fetchone())
+                else:
+                    result = list(map(dict, cursor.fetchall()))
+            else:
+                self.database.commit()
+                result = cursor.lastrowid
+        except Exception as e:
+            cursor.close()
+            raise e
+        cursor.close()
+        return result
+
     
     @property
     def _(self) -> Callable[[Any, str], Coroutine[Any, Any, str]]:

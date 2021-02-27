@@ -129,8 +129,8 @@ class Errors(commands.Cog):
         else:
             await ctx.send(await self.bot._(ctx.channel, "errors.error-unknown"))
         # All other Errors not returned come here... And we can just print the default TraceBack.
-        self.bot.log.warning(
-            'Ignoring exception in command {}:'.format(ctx.message.content))
+        self.bot.log.warning('Ignoring exception in command {}:'.format(
+            ctx.message.content), exc_info=(type(error), error, error.__traceback__))
         await self.on_error(error, ctx)
 
     @commands.Cog.listener()

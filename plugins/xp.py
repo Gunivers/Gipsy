@@ -4,6 +4,7 @@ from typing import Dict, List, Tuple, Union
 import typing
 import discord
 import time
+import string
 from math import ceil
 from discord.ext import commands
 import emoji
@@ -19,7 +20,7 @@ class XP(commands.Cog):
         self.cooldown = 30
         self.minimal_size = 5
         self.spam_rate = 0.20
-        self.xp_per_char = 0.11
+        self.xp_per_char = 0.115
         self.max_xp_per_msg = 70
         self.cache: Dict[Dict[int, int]] = dict()  # xp cache
         self.levels = [0]  # xp required per level
@@ -89,6 +90,9 @@ class XP(commands.Cog):
 
     async def check_spam(self, text: str):
         """Checks if a text contains spam"""
+        # check for usual bots prefixes
+        if len(text)>0 and (text[0] in string.punctuation or text[1] in string.punctuation):
+            return True
         d = dict()
         # count frequency of letters in the message
         for c in text:

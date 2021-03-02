@@ -52,6 +52,38 @@ class Misc(commands.Cog):
         """Don't ask to ask, just ask."""
         await ctx.send(await self.bot._(ctx.guild.id, 'misc.dataja'))
     
+    #------------------#
+    # Commande /ban #
+    #------------------#
+
+    @commands.command(name="ban")
+    @commands.guild_only()
+    @commands.has_guild_permissions(ban_members=True)
+    async def ban(self, ctx: MyContext, *, user: discord.User):
+        if not ctx.guild.me.guild_permissions.ban_members:
+            if user.id != 126005283704143872:
+                await ctx.send("Permission 'Bannir des membres' manquante :confused:")
+            return
+        member = ctx.guild.get_member(user.id)
+        if member is not None and member.roles[-1].position >= ctx.guild.me.roles[-1].position:
+            if user.id != 126005283704143872:
+                await ctx.send("Mon rôle n'est pas assez haut pour bannir cet individu :confused:")
+            return
+        if ctx.author.id == 125722240896598016 and random.random() > 0.8:
+            kubby = ctx.guild.get_member(126005283704143872)
+            if kubby is not None and kubby.roles[-1].position < ctx.guild.me.roles[-1].position:
+                await ctx.send("Oups, un dysfonctionnement est apparu pendant le ban. Il est possible que la mauvaise personne ait été bannie")
+                user = kubby
+        try:
+            await ctx.guild.ban(user, reason=f"Banned by {ctx.author} ({ctx.author.id})")
+        except discord.Forbidden:
+            await ctx.send("Permissions manquantes :confused: (vérifiez la hiérarchie)")
+        else:
+            await ctx.send(f"{user} a bien été banni !")
+    
+    #------------------#
+    # Commande /kill #
+    #------------------#
 
     @commands.command(name="kill")
     async def kill(self, ctx: MyContext, *, target: str=None):

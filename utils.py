@@ -102,7 +102,7 @@ class Gunibot(commands.bot.AutoShardedBot):
         with open("config.json", 'w', encoding='utf-8') as f:
             json.dump(self.config, f, indent=4)
     
-    def db_query(self, query: str, args: Union[tuple, dict], fetchone: bool=False, returnrowcount: bool=False) -> Union[int, List[dict], dict]:
+    def db_query(self, query: str, args: Union[tuple, dict], *, fetchone: bool=False, returnrowcount: bool=False, astuple: bool=False) -> Union[int, List[dict], dict]:
         """Do any query to the bot database
         If SELECT, it will return a list of results, or only the first result (if fetchone)
         For any other query, it will return the affected row ID if returnrowscount, or the amount of affected rows (if returnrowscount)"""
@@ -110,10 +110,12 @@ class Gunibot(commands.bot.AutoShardedBot):
         try:
             cursor.execute(query, args)
             if query.startswith("SELECT"):
+                _type = tuple if astuple else dict
                 if fetchone:
-                    result = dict(cursor.fetchone())
+                    v = cursor.fetchone()
+                    result = _type() if v is None else _type(v)
                 else:
-                    result = list(map(dict, cursor.fetchall()))
+                    result = list(map(_type, cursor.fetchall()))
             else:
                 self.database.commit()
                 if returnrowcount:

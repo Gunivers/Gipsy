@@ -23,7 +23,7 @@ class Thanks(commands.Cog):
         self.schedule_tasks()
 
     def schedule_tasks(self):
-        res = self.bot.db_query('SELECT guild, user, timestamp FROM thanks', astuple=True)
+        res = self.bot.db_query('SELECT guild, user, timestamp FROM thanks', (), astuple=True)
         now = datetime.datetime.now()
         for task in res:
             task = list(task)
@@ -71,7 +71,7 @@ class Thanks(commands.Cog):
         query = 'SELECT COUNT(*) as count FROM thanks WHERE guild=? AND user=?'
         if duration:
             query += f" AND timestamp >= datetime('now','-{duration} seconds')"
-        res = self.bot.db_query(query, (guildID, userID))
+        res = self.bot.db_query(query, (guildID, userID), fetchone=True)
         return res['count']
 
     def db_add_thanks(self, guildID: int, userID: int, authorID: int):

@@ -253,14 +253,11 @@ class XP(commands.Cog):
         try:
             if points < 0:
                 raise ValueError("You cannot add nor set negative xp")
-            cursor = self.bot.database.cursor()
             if Type == 'add':
                 query = "INSERT INTO xp (`guild`, `userid`,`xp`) VALUES (:g, :u, :p) ON CONFLICT(guild, userid) DO UPDATE SET xp = (xp + :p);"
             else:
                 query = "INSERT INTO xp (`guild`, `userid`,`xp`) VALUES (:g, :u, :p) ON CONFLICT(guild, userid) DO UPDATE SET xp = :p;"
-            cursor.execute(query, {'g': guild, 'u': userID, 'p': points})
-            self.bot.database.commit()
-            cursor.close()
+            self.bot.db_query(query, {'g': guild, 'u': userID, 'p': points})
             return True
         except Exception as e:
             await self.bot.get_cog('Errors').on_error(e)
@@ -271,16 +268,13 @@ class XP(commands.Cog):
         Set guild=None for global leaderboard"""
         try:
             query = "SELECT `xp` FROM `xp` WHERE `userid` = :u AND `guild` = :g"
-            cursor = self.bot.database.cursor()
-            cursor.execute(query, {'u': userID, 'g': guild})
-            liste = list(cursor)
+            liste = self.bot.db_query(query, {'u': userID, 'g': guild})
             if len(liste) == 1:
                 if userID in self.cache[guild].keys():
-                    self.cache[guild][userID][1] = liste[0][0]
+                    self.cache[guild][userID][1] = liste[0]['xp']
                 else:
                     self.cache[guild][userID] = [
-                        round(time.time())-60, liste[0][0]]
-            cursor.close()
+                        round(time.time())-60, liste[0]['xp']]
             return liste
         except Exception as e:
             await self.bot.get_cog('Errors').on_error(e)
@@ -290,13 +284,10 @@ class XP(commands.Cog):
         """Get the number of ranked users in a guild
         Set guild=None for global leaderboard"""
         try:
-            query = "SELECT COUNT(*) FROM xp WHERE `guild` = :g"
-            cursor = self.bot.database.cursor()
-            cursor.execute(query, {'g': guild})
-            liste = list(cursor)
-            cursor.close()
+            query = "SELECT COUNT(*) as count FROM xp WHERE `guild` = :g"
+            liste = self.bot.db_query(query, {'g': guild})
             if liste is not None and len(liste) == 1:
-                return liste[0][0]
+                return liste[0]['count']
             return 0
         except Exception as e:
             await self.bot.get_cog('Errors').on_error(e)
@@ -307,15 +298,12 @@ class XP(commands.Cog):
         Set guild=None for global leaderboard"""
         try:
             self.bot.log.info("Loading XP cache (guild {})".format(guild))
-            query = "SELECT `userid`,`xp` FROM xp WHERE `guild` = :g"
-            cursor = self.bot.database.cursor()
-            cursor.execute(query, {'g': guild})
-            liste = list(cursor)
+            query = "SELECT `userid`,`xp` FROM xp WHERE `guild` = ?"
+            liste = self.bot.db_query(query, (guild,))
             if guild not in self.cache.keys():
                 self.cache[guild] = dict()
             for l in liste:
-                self.cache[guild][l[0]] = [round(time.time())-60, int(l[1])]
-            cursor.close()
+                self.cache[guild][l['userid']] = [round(time.time())-60, int(l['xp'])]
         except Exception as e:
             await self.bot.get_cog('Errors').on_error(e)
 
@@ -323,22 +311,20 @@ class XP(commands.Cog):
         """Get the rank of a user
         Set guild=None for global leaderboard"""
         try:
-            query = f"SELECT `userid`,`xp` FROM xp WHERE guild = :g ORDER BY xp desc;"
-            cursor = self.bot.database.cursor()
-            cursor.execute(query, {'g': guild.id if guild else None})
+            query = f"SELECT `userid`,`xp` FROM xp WHERE guild = ? ORDER BY xp desc;"
+            liste = self.bot.db_query(query, (guild.id if guild else None,))
             userdata = dict()
             i = 0
             users = list()
             if guild is not None:
                 users = [x.id for x in guild.members]
-            for x in cursor:
-                if guild is None or (guild is not None and x[0] in users):
+            for x in liste:
+                if guild is None or (guild is not None and x['userid'] in users):
                     i += 1
-                if x[0] == userID:
+                if x['userid'] == userID:
                     userdata = dict(x)
                     userdata['rank'] = i
                     break
-            cursor.close()
             return userdata
         except Exception as e:
             await self.bot.get_cog('Errors').on_error(e)
@@ -346,15 +332,10 @@ class XP(commands.Cog):
     async def bdd_get_top(self, top: int = None, guild: discord.Guild = None):
         """"""
         try:
-            cursor = self.bot.database.cursor()
-            query = "SELECT userid, xp FROM xp WHERE guild = :g ORDER BY `xp` DESC"
+            query = "SELECT userid, xp FROM xp WHERE guild = ? ORDER BY `xp` DESC"
             if top is not None:
                 query += f" LIMIT {top}"
-            cursor.execute(query, {'g': guild.id if guild else None})
-            # we convert every row to a proper dict
-            liste = list(map(dict, cursor))
-            cursor.close()
-            return liste
+            return self.bot.db_query(query, (guild.id if guild else None,))
         except Exception as e:
             await self.bot.get_cog('Errors').on_error(e)
 
@@ -363,7 +344,7 @@ class XP(commands.Cog):
         xp = await self.bdd_get_xp(user.id, guild_id)
         if xp is None or (isinstance(xp, list) and len(xp) == 0):
             return
-        return xp[0][0]
+        return xp[0]['xp']
 
     async def send_embed(self, ctx: MyContext, user: discord.User, xp, rank, ranks_nb, levels_info):
         """Send the !rank command as an embed"""
@@ -517,35 +498,23 @@ class XP(commands.Cog):
 
     async def rr_add_role(self, guildID: int, roleID: int, level: int):
         """Add a role reward in the database"""
-        cnx = self.bot.database
-        cursor = cnx.cursor()
         query = "INSERT INTO `roles_levels` (`guild`,`role`,`level`) VALUES (:g, :r, :l);"
-        cursor.execute(query, {'g': guildID, 'r': roleID, 'l': level})
-        cnx.commit()
-        cursor.close()
+        self.bot.db_query(query, {'g': guildID, 'r': roleID, 'l': level})
         return True
 
     async def rr_list_role(self, guild: int, level: int = -1) -> List[dict]:
         """List role rewards in the database"""
-        cnx = self.bot.database
-        cursor = cnx.cursor()
         if level < 0:
             query = "SELECT rowid AS id, * FROM `roles_levels` WHERE guild = :g ORDER BY level;"
         else:
             query = "SELECT rowid AS id, * FROM `roles_levels` WHERE guild=:g AND level=:l ORDER BY level;"
-        cursor.execute(query, {'g': guild, 'l': level})
-        liste = list(map(dict, cursor))
-        cursor.close()
+        liste = self.bot.db_query(query, {'g': guild, 'l': level})
         return liste
 
     async def rr_remove_role(self, ID: int):
         """Remove a role reward from the database"""
-        cnx = self.bot.database
-        cursor = cnx.cursor()
         query = "DELETE FROM `roles_levels` WHERE rowid = ?;"
-        cursor.execute(query, (ID, ))
-        cnx.commit()
-        cursor.close()
+        self.bot.db_query(query, (ID, ))
         return True
 
     @commands.group(name="roles_levels")

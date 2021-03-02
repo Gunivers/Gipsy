@@ -69,23 +69,20 @@ class Groups(commands.Cog):
 
     def db_get_config(self, guildID: int) -> List[Group]:
         """Get every group of a specific guild"""
-        c = self.bot.database.cursor()
-        c.execute('SELECT rowid, * FROM groups WHERE guild=?', (guildID,))
+        query = 'SELECT rowid, * FROM groups WHERE guild=?'
+        liste = self.bot.db_query(query, (guildID,), astuple=True)
         # comes as: (rowid, guild, roleID, ownerID, channelID, privacy)
-        res = list()
-        for row in list(c):
+        res: List[Group] = list()
+        for row in liste:
             res.append(Group(*row[1:]))
             res[-1].id = row[0]
-        c.close()
         return res if len(res) > 0 else None
     
     def db_get_group(self, guildID: int, roleID: int) -> Group:
         """Get a specific group from its role ID"""
-        c = self.bot.database.cursor()
-        c.execute('SELECT rowid, * FROM groups WHERE guild=? AND roleID=?;', (guildID, roleID))
+        query = 'SELECT rowid, * FROM groups WHERE guild=? AND roleID=?;'
+        res = self.bot.db_query(query, (guildID, roleID), fetchone=True, astuple=True)
         # comes as: (rowid, guild, roleID, ownerID, channelID, privacy)
-        res = c.fetchone()
-        c.close()
         if res is None: return None
         group = Group(*res[1:])
         group.id = res[0]
@@ -93,61 +90,43 @@ class Groups(commands.Cog):
 
     def db_get_n_group(self, guildID: int, ownerID) -> int:
         """Get the number of groups owned by someone in a specific guild"""
-        c = self.bot.database.cursor()
-        c.execute('SELECT COUNT(*) FROM groups WHERE guild=? AND ownerID=?', (guildID,ownerID))
-        res = c.fetchone()[0]
-        c.close()
-        return res
+        query = 'SELECT COUNT(*) as count FROM groups WHERE guild=? AND ownerID=?'
+        res = self.bot.db_query(query, (guildID, ownerID), fetchone=True)
+        return res['count']
 
     def db_add_groups(self, guild, roleID, ownerID, privacy) -> int:
         """Add a group into a guild
         Return the inserted row ID"""
-        c = self.bot.database.cursor()
-        c.execute(
-            "INSERT INTO groups (guild, roleID, ownerID, privacy) VALUES (?, ?, ?, ?)", (guild, roleID, ownerID, privacy))
-        self.bot.database.commit()
-        c.close()
+        query = "INSERT INTO groups (guild, roleID, ownerID, privacy) VALUES (?, ?, ?, ?)"
+        self.bot.db_query(query, (guild, roleID, ownerID, privacy))
 
     def db_delete_group(self, guildID: int, toDelete) -> bool:
         """Delete a group from a guild, based on its row ID
         Return True if a row was deleted, False else"""
-        c = self.bot.database.cursor()
-        c.execute("DELETE FROM groups WHERE guild=? AND roleID=?",
-                      (guildID, toDelete))
-        self.bot.database.commit()
-        deleted = c.rowcount == 1
-        c.close()
-        return deleted
+        query = "DELETE FROM groups WHERE guild=? AND roleID=?"
+        rowcount = self.bot.db_query(query, (guildID, toDelete), returnrowcount=True)
+        return rowcount == 1
 
     def db_update_group_owner(self, guildID :int, roleID, ownerID) -> bool:
         """Update a group from a guild, based on its row ID
         Return True if a row was updated, False else"""
-        c = self.bot.database.cursor()
-        c.execute("UPDATE groups SET ownerID=? WHERE roleID=? AND guild=? ",
-                  (ownerID,roleID,guildID))
-        updated = c.rowcount == 1
-        c.close()
-        return updated
+        query = "UPDATE groups SET ownerID=? WHERE roleID=? AND guild=? "
+        rowcount = self.bot.db_query(query, (ownerID,roleID,guildID), returnrowcount=True)
+        return rowcount == 1
 
     def db_update_group_privacy(self, guildID :int, roleID, privacy) -> bool:
         """Update a group from a guild, based on its row ID
         Return True if a row was updated, False else"""
-        c = self.bot.database.cursor()
-        c.execute("UPDATE groups SET privacy=? WHERE roleID=? AND guild=? ",
-                  (privacy,roleID,guildID))
-        updated = c.rowcount == 1
-        c.close()
-        return updated
+        query = "UPDATE groups SET privacy=? WHERE roleID=? AND guild=? "
+        rowcount = self.bot.db_query(query, (privacy,roleID,guildID), returnrowcount=True)
+        return rowcount == 1
 
     def db_update_group_channel(self, guildID :int, roleID, channelID) -> bool:
         """Update a group from a guild, based on its row ID
         Return True if a row was updated, False else"""
-        c = self.bot.database.cursor()
-        c.execute("UPDATE groups SET channelID=? WHERE roleID=? AND guild=? ",
-                  (channelID,roleID,guildID))
-        updated = c.rowcount == 1
-        c.close()
-        return updated
+        query = "UPDATE groups SET channelID=? WHERE roleID=? AND guild=? "
+        rowcount = self.bot.db_query(query, (channelID,roleID,guildID), returnrowcount=True)
+        return rowcount == 1
 
     @commands.group(name="group", aliases=["groups"])
     @commands.guild_only()
@@ -281,7 +260,7 @@ class Groups(commands.Cog):
         # let's edit role accordingly
         await group.role(self.bot).edit(name=name)
         # if we should also update the channel name
-        if roleName == group.channel(self.bot).name:
+        if roleName.lower() == group.channel(self.bot).name:
             await group.channel(self.bot).edit(name=name)
         await ctx.send(await self.bot._(ctx.guild.id, "groups.update_name", name=name, group=roleName))
 

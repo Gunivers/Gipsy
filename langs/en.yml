@@ -226,7 +226,7 @@ en:
       title: Role deleted
       desc: The role %{name} has just been deleted
       members: "Member count:"
-    role_update:
+    role_updated:
       title: Role updated
       desc: The role %{mention} (%{name}) has just been modified
       name: "Name:"

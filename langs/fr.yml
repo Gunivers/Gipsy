@@ -226,7 +226,7 @@ fr:
       title: Rôle supprimé
       desc: Le rôle %{name} vient d'être supprimé
       members: "Nombre de membres :"
-    role_update:
+    role_updated:
       title: Rôle édité
       desc: Le rôle %{mention} (%{name}) vient d'être modifié
       name: "Nom :"

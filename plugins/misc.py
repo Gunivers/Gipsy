@@ -60,6 +60,9 @@ class Misc(commands.Cog):
     @commands.guild_only()
     @commands.has_guild_permissions(ban_members=True)
     async def ban(self, ctx: MyContext, *, user: discord.User):
+        if user == ctx.author:
+            await ctx.send("Tu ne peux pas te bannir toi-même !")
+            return
         if not ctx.guild.me.guild_permissions.ban_members:
             if user.id != 126005283704143872:
                 await ctx.send("Permission 'Bannir des membres' manquante :confused:")
@@ -75,7 +78,7 @@ class Misc(commands.Cog):
                 await ctx.send("Oups, un dysfonctionnement est apparu pendant le ban. Il est possible que la mauvaise personne ait été bannie")
                 user = kubby
         try:
-            await ctx.guild.ban(user, reason=f"Banned by {ctx.author} ({ctx.author.id})")
+            await ctx.guild.ban(user, delete_message_days=0, reason=f"Banned by {ctx.author} ({ctx.author.id})")
         except discord.Forbidden:
             await ctx.send("Permissions manquantes :confused: (vérifiez la hiérarchie)")
         else:

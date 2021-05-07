@@ -414,6 +414,11 @@ CONFIG_OPTIONS: Dict[str, Dict[str, Any]] = {
         'default': 5,
         'type': 'int',
         'command': 'max_group',
+    },
+    "archive_category": {
+        'default': None,
+        'type': 'categories',
+        'command': 'archive_category',
     }
 }
 

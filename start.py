@@ -11,7 +11,7 @@ import sqlite3
 from discord.ext import commands
 from utils import Gunibot, setup_logger
 
-initial_extensions = ["admin", "timeclass", "antikikoo", "contact", "errors", "general", "sconfig", "configManager", "voices", "logs", "perms", "welcome", "thanks", "groupRoles", "misc", "messageManager", "giveaways", "languages", "hypesquad", "xp", "rss", "groups"]
+initial_extensions = ["admin", "timeclass", "antikikoo", "contact", "errors", "general", "sconfig", "configManager", "voices", "logs", "perms", "welcome", "thanks", "groupRoles", "misc", "messageManager", "giveaways", "languages", "hypesquad", "xp", "rss", "groups", "channel_archive"]
 
 
 def main():

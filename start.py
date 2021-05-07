@@ -7,8 +7,13 @@ import asyncio
 import logging
 import json
 import sys
-import sqlite3
-from discord.ext import commands
+
+# check python version
+py_version = sys.version_info
+if py_version.major != 3 or py_version.minor < 9:
+    print("Vous devez utiliser au moins Python 3.9 !", file=sys.stderr)
+    sys.exit(1)
+
 from utils import Gunibot, setup_logger
 
 initial_extensions = ["admin", "timeclass", "antikikoo", "contact", "errors", "general", "sconfig", "configManager", "voices", "logs", "perms", "welcome", "thanks", "groupRoles", "misc", "messageManager", "giveaways", "languages", "hypesquad", "xp", "rss", "groups"]

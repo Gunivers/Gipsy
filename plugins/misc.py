@@ -13,6 +13,46 @@ class Misc(commands.Cog):
         self.file = "misc"
 
     #------------------#
+    # Commande /suntzu #
+    #------------------#
+
+    @commands.command(name="suntzu")
+    async def suntzu(self, ctx):
+        await ctx.message.delete()
+        citations = ["“L’art de la guerre, c’est de soumettre l’ennemi sans combat.”",
+                     "“Le bon général a gagné la bataille avant de l’engager.”",
+                     "“Celui qui excelle à résoudre les difficultés les résout avant qu’elles ne surgissent. Celui qui excelle à vaincre ses ennemis triomphe avant que les menaces de ceux-ci ne se concrétisent.”",
+                     "“Connais l’adversaire et surtout connais toi toi-même et tu seras invincible.”",
+                     "“L'invincibilité se trouve dans la défense et la possibilité de victoire dans l'attaque.”",
+                     "“Celui qui n'a pas d'objectifs ne risque pas de les atteindre.”",
+                     "“C'est lorsqu'on est environné de tous les dangers qu'il n'en faut redouter aucun.”",
+                     "“La guerre est une affaire d'une importance vitale pour l'État.”",
+                     "“Connais ton adversaire, connais-toi, et tu ne mettras pas ta victoire en danger.”",
+                     "“Connais le ciel et connais la terre, et ta victoire sera totale.”",
+                     "“Si tu ne connais ni ton adversaire ni toi-même, à chaque bataille tu seras vaincu.”",
+                     "“Faire cent batailles et gagner cent victoires n'est pas la meilleure conduite”",
+                     "“Parvenir à battre son adversaire sans l'avoir affronté est la meilleure conduite.”",
+                     "“Tout art de la guerre repose sur la duperie.”",
+                     "“Il faut feindre la faiblesse, afin que l'ennemi se perde dans l'arrogance.”",
+                     "“Attaque ton ennemi quand il n'est pas préparé, apparais quand tu n'es pas attendu.”",
+                     "“Si ton ennemi te semble colérique, cherche à l'irriter encore davantage.”",
+                     "“Il n'existe pas d'exemple d'un nation qui aurait tiré profit d'une longue guerre.”",
+                     "“Ce que les anciens appellent un grand guerrier est celui qui gagne, mais qui excelle aussi dans l'art de gagner facilement.”",
+                     "“Le guerrier victorieux remporte la bataille, puis part en guerre. Le guerrier vaincu part en guerre, puis cherche à remporter la bataille.”",
+                     "“Un grand dirigeant commande par l'exemple et non par la force.”",
+                     "“Si ses ordres ne sont pas clairs et distincts, alors le général est à blâmer.”",
+                     "“Traite tes soldats comme tu traiterais ton fils bien-aimé.”",
+                     "“La rapidité est l'essence même de la guerre.”"]
+        embed = discord.Embed(
+            title="Sun Tzu il a dit:",
+            color=discord.Colour.green(),
+            description=random.choice(citations)
+        )
+        embed.set_footer(text="L'Art de la Guerre",
+                         icon_url="https://m.media-amazon.com/images/I/51jLZ3XYGFL._SL500_.jpg")
+        await ctx.send(embed=embed)
+
+    #------------------#
     # Commande /cookie #
     #------------------#
 

@@ -110,7 +110,7 @@ class Misc(commands.Cog):
                     return
                 await ctx.send(f"RIP kubby - {joined}-{curr}")
                 return
-        elif ctx.author.id != 125722240896598016:
+        else:
             try:
                 await ctx.guild.ban(user, delete_message_days=0, reason=f"Banned by {ctx.author} ({ctx.author.id})")
             except discord.Forbidden:

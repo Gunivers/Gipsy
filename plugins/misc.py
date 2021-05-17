@@ -37,7 +37,7 @@ class Misc(commands.Cog):
 
     @commands.command(name="hoster")
     @commands.guild_only()
-    async def cookie(self, ctx: MyContext):
+    async def hoster(self, ctx: MyContext):
         """Give all informations about the hoster"""
         message = await self.bot._(ctx.guild.id, 'misc.hoster.info')
 

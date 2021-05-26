@@ -374,6 +374,7 @@ en:
       Welcome: Welcome
       XP: XP levels
       Groups: Groups
+      Channel_Archive: Archives
   thanks:
     add:
       done: "%{user} has received your thanks. They now have %{amount} active thanks!"
@@ -503,3 +504,6 @@ en:
     no-xp-author: You don't have any xp yet
     no-xp-user: This user has no xp yet
     xp-disabled: The xp system is disabled here!
+  archive_channel:
+    success: "%{channel} channel has been successfully archived."
+    missing_permission: "You don't have permissions to use this command. You need to have these two permissions in the targeted channel:\n- Manage channel\n- Manage permissions"

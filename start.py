@@ -16,7 +16,7 @@ if py_version.major != 3 or py_version.minor < 9:
 
 from utils import Gunibot, setup_logger
 
-initial_extensions = ["admin", "timeclass", "antikikoo", "contact", "errors", "general", "sconfig", "configManager", "voices", "logs", "perms", "welcome", "thanks", "groupRoles", "misc", "messageManager", "giveaways", "languages", "hypesquad", "xp", "rss", "groups"]
+initial_extensions = ["admin", "timeclass", "antikikoo", "contact", "errors", "general", "sconfig", "configManager", "voices", "logs", "perms", "welcome", "thanks", "groupRoles", "misc", "messageManager", "giveaways", "languages", "hypesquad", "xp", "rss", "groups", "channel_archive"]
 
 
 def main():

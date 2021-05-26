@@ -374,6 +374,7 @@ fr:
       Welcome: Bienvenue
       XP: Niveaux d'XP
       Groups: Groupes
+      Channel_Archive: Archives
   thanks:
     add:
       done: "%{user} a bien reçu votre remerciement. Il a maintenant %{amount} remerciements actifs !"
@@ -503,3 +504,6 @@ fr:
     no-xp-author: Vous n'avez encore aucun xp
     no-xp-user: Cet utilisateur n'a encore aucun xp
     xp-disabled: Le système d'xp est désactivé ici !
+  archive_channel:
+    success: "Le salon %{channel} à bien été archivé."
+    missing_permission: "Vous n'avez pas la permission d'effectuer cette commande. Deux permissions sont requises dans le salon concerné :\n- Gérer le salon\n- Gérer les permissions"

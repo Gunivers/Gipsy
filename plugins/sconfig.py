@@ -532,7 +532,9 @@ class Sconfig(commands.Cog):
             self.bot.server_configs[ctx.guild.id] = d
             await ctx.send('👍')
 
-
+    @main_config.command(name="archive_category")
+    async def config_voice_channel(self, ctx: MyContext, *, category: discord.CategoryChannel):
+        await ctx.send(await self.edit_config(ctx.guild.id, "archive_category", category.id))
 
 def setup(bot):
     bot.add_cog(Sconfig(bot))

@@ -507,3 +507,7 @@ en:
   archive_channel:
     success: "%{channel} channel has been successfully archived."
     missing_permission: "You don't have permissions to use this command. You need to have these two permissions in the targeted channel:\n- Manage channel\n- Manage permissions"
+    no_channel: "There is no archived channel."
+    no_deleted: "No channel has been deleted."
+    one_deleted: "1 channel has been deleted."
+    several_deleted: "%{count} channels has been deleted."

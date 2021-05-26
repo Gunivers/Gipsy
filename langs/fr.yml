@@ -507,3 +507,7 @@ fr:
   archive_channel:
     success: "Le salon %{channel} à bien été archivé."
     missing_permission: "Vous n'avez pas la permission d'effectuer cette commande. Deux permissions sont requises dans le salon concerné :\n- Gérer le salon\n- Gérer les permissions"
+    no_channel: "Il n'y a aucun salon dans les archives."
+    no_deleted: "Aucun salon n'a été supprimé."
+    one_deleted: "1 salon à été supprimé"
+    several_deleted: "%{count} salons ont été supprimés."

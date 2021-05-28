@@ -419,6 +419,11 @@ CONFIG_OPTIONS: Dict[str, Dict[str, Any]] = {
         'default': None,
         'type': 'categories',
         'command': 'archive_category',
+    },
+    "archive_duration": {
+        'default': 86400*30,  # 30 days
+        'type': 'duration',
+        'command': 'archive_duration',
     }
 }
 

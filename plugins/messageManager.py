@@ -39,7 +39,7 @@ class MessageManager(commands.Cog):
     async def imitate(self, ctx: commands.Context, user: discord.User = None, *, text=None):
         """Say something with someone else's appearance"""
 
-        if user and text and ctx.author.permission_in(ctx.channel).manage_messages and ctx.author.permission_in(ctx.channel).manage_nicknames:
+        if user and text and ctx.author.permissions_in(ctx.channel).manage_messages and ctx.author.permissions_in(ctx.channel).manage_nicknames:
             # Create a webhook in the image of the targeted member
             webhook = await ctx.channel.create_webhook(name=user.name)
             await webhook.send(content=text, avatar_url=user.avatar_url)

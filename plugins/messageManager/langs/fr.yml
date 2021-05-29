@@ -1,0 +1,11 @@
+fr:
+  message_manager:
+      move:
+        confirm: "%{user}, votre message a été déplacé dans %{channel}"
+        footer: "Message déplacé par %{user}"
+      moveall:
+        channel-conflict: Les deux messages cités doivent être dans le même salon
+        confirm: "Plusieurs messages ont été déplacés dans %{channel}"
+        footer: "Messages déplacés par %{user}"
+        missing-perm: "Impossible de faire cela :confused: Vérifiez que je possède la permission de Lire le salon, Lire l'historique des messages, Gérer les messages dans ce salon, et Lire le salon, Gérer les webhooks dans le salon ciblé"
+        no-msg: Aucun message trouvé

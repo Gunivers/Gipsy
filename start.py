@@ -20,9 +20,12 @@ from utils import Gunibot, setup_logger
 
 # Loaded plugins
 initial_extensions = []
-for plugin in os.listdir('./plugins'):
+for plugin in os.listdir('./plugins/'):
     if plugin[0] != '_':
-        initial_extensions.append(plugin[0:-3])
+        if os.path.isdir('./plugins/' + plugin):
+            initial_extensions.append(plugin + '.main')
+        if os.path.isfile('./plugins/' + plugin) and plugin[-3:] == '.py':
+            initial_extensions.append(plugin[0:-3])
 
 
 

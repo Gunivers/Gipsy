@@ -38,7 +38,8 @@ initial_extensions = ["admin",
                       "xp",
                       "rss",
                       "groups",
-                      "channelArchive"]
+                      "channelArchive",
+                      "gunivers"]
 
 def main():
     with open('config.json') as f:

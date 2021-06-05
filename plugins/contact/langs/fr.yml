@@ -10,3 +10,4 @@ fr:
     not-deleted:
       one: "Un salon n'a pas pu être supprimé :"
       many: "%{count} salons n'ont pas pu être supprimés :"
+    invalid-title: "Titre de salon invalide. Ce paramètre doit être définit sur `author` ou `object`"

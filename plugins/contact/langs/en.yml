@@ -10,3 +10,4 @@ en:
     not-deleted:
       one: "One channel could not be deleted:"
       many: "%{count} channels could not be deleted:"
+    invalid-title: "Invalid contact title. The title must be either `author` or `object`"

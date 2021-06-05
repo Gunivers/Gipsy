@@ -189,7 +189,7 @@ class Sconfig(commands.Cog):
             await logs_cog.send_embed(ctx.guild, emb)
 
     #--------------------------------------------------
-    # Voice Channel
+    # Contact
     #--------------------------------------------------
 
     @main_config.command(name="contact_channel")
@@ -207,6 +207,13 @@ class Sconfig(commands.Cog):
         else:
             roles = [role.id for role in roles]
         await ctx.send(await self.edit_config(ctx.guild.id, "contact_roles", roles))
+
+    @main_config.command(name="contact_title")
+    async def config_contact_title(self, ctx: MyContext, *, title):
+        if title == "author" or title == "object":
+            await ctx.send(await self.edit_config(ctx.guild.id, "contact_title", title))
+        else:
+            await ctx.send(await self.bot._(ctx.guild.id, "contact.invalid-title"))
 
     #--------------------------------------------------
     # Welcome

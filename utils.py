@@ -292,6 +292,11 @@ CONFIG_OPTIONS: Dict[str, Dict[str, Any]] = {
         'type': 'roles',
         'command': 'contact_roles',
     },
+    "contact_title": {
+        'default': "object",
+        'type': 'text',
+        'command': 'contact_title',
+    },
     "welcome_roles": {
         'default': None,
         'type': 'roles',

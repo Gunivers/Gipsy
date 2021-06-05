@@ -32,8 +32,11 @@ class Contact(commands.Cog):
         return res
 
     def db_add_channel(self, channel: discord.TextChannel, authorID):
-        query = "INSERT INTO contact_channels (guild,channel, author) VALUES (?, ?, ?)"
-        self.bot.db_query(query, (channel.guild.id, channel.id, authorID))
+        try:
+            query = "INSERT INTO contact_channels (guild,channel, author) VALUES (?, ?, ?)"
+            self.bot.db_query(query, (channel.guild.id, channel.id, authorID))
+        except sqlite3.OperationalError as e:
+            print(e)
 
     def db_delete_channel(self, guildID: int, channelID: int):
         query = "DELETE FROM contact_channels WHERE guild=? AND channel=?"
@@ -70,6 +73,7 @@ class Contact(commands.Cog):
             else:
                 channel = await category.create_text_channel(message.content[:100], topic=str(message.author) + " - " + str(message.author.id), overwrites=perms)
             self.db_add_channel(channel, message.author.id)
+
         except discord.errors.Forbidden as e:
             await self.bot.get_cog("Errors").on_error(e, await self.bot.get_context(message))
             return

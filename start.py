@@ -7,6 +7,7 @@ import asyncio
 import logging
 import json
 import sys
+import os
 
 # check python version
 py_version = sys.version_info
@@ -16,30 +17,17 @@ if py_version.major != 3 or py_version.minor < 9:
 
 from utils import Gunibot, setup_logger
 
-initial_extensions = ["admin",
-                      "timeclass",
-                      "antikikoo",
-                      "contact",
-                      "errors",
-                      "general",
-                      "sconfig",
-                      "configManager",
-                      "voices",
-                      "logs",
-                      "perms",
-                      "welcome",
-                      "thanks",
-                      "groupRoles",
-                      "misc",
-                      "messageManager",
-                      "giveaways",
-                      "languages",
-                      "hypesquad",
-                      "xp",
-                      "rss",
-                      "groups",
-                      "channelArchive",
-                      "gunivers"]
+
+# Loaded plugins
+initial_extensions = []
+for plugin in os.listdir('./plugins/'):
+    if plugin[0] != '_':
+        if os.path.isdir('./plugins/' + plugin):
+            initial_extensions.append(plugin + '.main')
+        if os.path.isfile('./plugins/' + plugin) and plugin[-3:] == '.py':
+            initial_extensions.append(plugin[0:-3])
+
+
 
 def main():
     with open('config.json') as f:

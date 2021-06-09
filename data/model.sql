@@ -97,3 +97,11 @@ CREATE TABLE IF NOT EXISTS `archive` (
   `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE INDEX IF NOT EXISTS idx_archive_guild ON `archive` (`guild`);
+
+CREATE TABLE IF NOT EXISTS `quizz` (
+  `guild` BIGINT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `question` MEDIUMTEXT,
+  `awnser` MEDIUMTEXT
+);
+CREATE INDEX IF NOT EXISTS idx_archive_guild ON `quizz` (`guild`);

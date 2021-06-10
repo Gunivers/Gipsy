@@ -414,7 +414,12 @@ CONFIG_OPTIONS: Dict[str, Dict[str, Any]] = {
         'default': 5,
         'type': 'int',
         'command': 'max_group',
-    }
+    },
+    "rs_enabled" : {
+        'default': False,
+        'type': 'boolean',
+        'command': 'rs_enabled'
+    },
 }
 
 def bytes_subtract(x: int, y: int) -> int:

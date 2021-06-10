@@ -90,3 +90,11 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `privacy` BOOLEAN NOT NULL DEFAULT 0
 );
 CREATE INDEX IF NOT EXISTS idx_groups_guild ON `groups` (`guild`);
+
+CREATE TABLE IF NOT EXISTS `saved_role` (
+  `guild` BIGINT NOT NULL,
+  `memberID` BIGINT NOT NULL,
+  `roles` VARCHAR DEFAULT NULL,
+  `nickname` VARCHAR DEFAULT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_saved_role_guild ON `saved_role` (`guild`);

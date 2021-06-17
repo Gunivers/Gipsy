@@ -23,3 +23,10 @@ def get_stats(quizz):
     r = requests.get(url="https://quipoquiz.com/module/sed/quiz/fr/end_quiz.snc", params=params)
     pauload = json.loads(r.text)
     return pauload["result"]["statistics"]
+
+
+def get_name(uid_variation):
+    with open('names.json', 'r', encoding='utf-8') as f:
+        names = json.load(f.read())
+    if uid_variation in names: return names[uid_variation]
+    else: return None

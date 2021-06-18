@@ -1,6 +1,8 @@
 import requests
 import json
 
+with open('data.json', 'r', encoding='utf-8') as f: data = json.load(f.read())
+
 
 def get_questions(quizz):
     params = {'quiz': str(quizz)}
@@ -26,7 +28,10 @@ def get_stats(quizz):
 
 
 def get_name(uid_variation):
-    with open('names.json', 'r', encoding='utf-8') as f:
-        names = json.load(f.read())
-    if uid_variation in names: return names[uid_variation]
+    if uid_variation in data: return data[uid_variation]['name']
+    else: return None
+
+
+def get_url(uid_variation):
+    if uid_variation in data: return  data[uid_variation]['url']
     else: return None

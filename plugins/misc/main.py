@@ -89,35 +89,12 @@ class Misc(commands.Cog):
         if member is not None and member.roles[-1].position >= ctx.guild.me.roles[-1].position:
             await ctx.send("Mon rôle n'est pas assez haut pour bannir cet individu :confused:")
             return
-        if ctx.author.id == 125722240896598016 and random.random() > 0.7:
-            kubby: discord.Member = ctx.guild.get_member(126005283704143872)
-            if kubby is not None and kubby.roles[-1].position < ctx.guild.me.roles[-1].position:
-                joined = kubby.joined_at.year
-                curr = datetime.now().year
-                invites = list()
-                if ctx.guild.me.guild_permissions.manage_guild:
-                    invites = await ctx.guild.invites()
-                    invites = [x for x in invites if x.max_uses>1]
-                elif ctx.channel.permissions_for(ctx.guild.me).create_instant_invite:
-                    invites = [await ctx.channel.create_invite(max_uses=1)]
-                if len(invites) > 0:
-                    await kubby.send(f"Il est très probable que tu ai été banni du serveur {ctx.guild.name}. Dans le doute, voilà une invite : {invites[0].url}")
-                else:
-                    await kubby.send(f"Il est très probable que tu ai été banni du serveur {ctx.guild.name}. Malheureusement pour toi, je n'ai pas pu te trouver d'invitation de secours :/")
-                try:
-                    await ctx.guild.ban(kubby, delete_message_days=0, reason=f"Banned by {ctx.author} ({ctx.author.id})")
-                except:
-                    return
-                await ctx.send(f"RIP kubby - {joined}-{curr}")
-                return
+        try:
+            await ctx.guild.ban(user, delete_message_days=0, reason=f"Banned by {ctx.author} ({ctx.author.id})")
+        except discord.Forbidden:
+            await ctx.send("Permissions manquantes :confused: (vérifiez la hiérarchie)")
         else:
-            try:
-                await ctx.guild.ban(user, delete_message_days=0, reason=f"Banned by {ctx.author} ({ctx.author.id})")
-            except discord.Forbidden:
-                await ctx.send("Permissions manquantes :confused: (vérifiez la hiérarchie)")
-            else:
-                await ctx.send(f"{user} a bien été banni !")
-            return
+            await ctx.send(f"{user} a bien été banni !")
         await ctx.send("https://thumbs.gfycat.com/LikelyColdBasil-small.gif")
 
 

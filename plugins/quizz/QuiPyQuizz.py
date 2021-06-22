@@ -46,6 +46,10 @@ class QuiPyQuizz:
             return self.data[uid_variation]['questions'][question_id]
         else: return None
 
+    def get_questions(self, uid_variation):
+        if uid_variation in self.data: return self.data[uid_variation]['questions']
+        else: return None
+
     def get_awnser(self, uid_variation, question_id):
         if uid_variation in self.data and question_id in self.data[uid_variation]['awnsers']:
             return self.data[uid_variation]['awnsers'][question_id]

@@ -16,7 +16,6 @@ class General(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.codelines = 0
 
     @commands.Cog.listener()
@@ -27,15 +26,15 @@ class General(commands.Cog):
         """Count the number of lines for the whole project"""
         count = 0
         try:
-            with open('start.py', 'r') as file:
-                for line in file.read().split("\n"):
-                    if len(line.strip()) > 2 and line[0] != '#':
-                        count += 1
-            for filename in [f"plugins/{x.file}.py" for x in self.bot.cogs.values()]+['checks.py']:
-                with open(filename, 'r') as file:
-                    for line in file.read().split("\n"):
-                        if len(line.strip()) > 2 and line[0] != '#':
-                            count += 1
+            for root, dirs, files in os.walk("."):
+                if '/lib/python' in root:
+                    continue
+                for file in files:
+                    if file.endswith(".py"):
+                        with open(os.path.join(root, file), 'r') as f:
+                            for line in f.read().split("\n"):
+                                if len(line.strip()) > 2 and line[0] != '#':
+                                    count += 1
         except Exception as e:
             await self.bot.get_cog('Errors').on_error(e, None)
         self.codelines = count

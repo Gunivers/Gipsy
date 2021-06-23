@@ -25,7 +25,6 @@ class Admin(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self._last_result = None
 
     @commands.group(name='admin', hidden=True)
@@ -98,7 +97,6 @@ class Admin(commands.Cog):
         await ctx.send(content="Redémarrage en cours...")
         await self.cleanup_workspace()
         self.bot.log.info("Redémarrage du bot")
-        sys.argv.append('beta' if self.bot.beta else 'stable')
         os.execl(sys.executable, sys.executable, *sys.argv)
 
     @main_msg.command(name='purge')
@@ -124,7 +122,7 @@ class Admin(commands.Cog):
         reloaded_cogs = list()
         for cog in cogs:
             try:
-                self.bot.reload_extension("plugins."+cog)
+                self.bot.reload_extension("plugins." + cog + ".main")
             except ModuleNotFoundError:
                 await ctx.send("Cog {} can't be found".format(cog))
             except commands.errors.ExtensionNotLoaded:

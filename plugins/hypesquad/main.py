@@ -11,7 +11,6 @@ class Hypesquad(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.config_options = ['hs_bravery_role', 'hs_brilliance_role', 'hs_balance_role', 'hs_none_role']
         self.roles_loop.start()
 

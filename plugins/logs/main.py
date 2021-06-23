@@ -10,7 +10,6 @@ class Logs(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.config_options = ['logs_channel', 'modlogs_flags']
 
     async def has_logs(self, guild) -> bool:

@@ -16,7 +16,6 @@ class Giveaways(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.config_options = ['giveaways_emojis']
         self.internal_task.start()
 

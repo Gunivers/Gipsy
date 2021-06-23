@@ -20,7 +20,6 @@ class Antikikoo(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.config_options = ["verification_channel", "info_channel", "pass_message", "verification_add_role", "verification_info_message", "verification_role"]
 
     @commands.Cog.listener()

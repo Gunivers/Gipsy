@@ -64,7 +64,6 @@ class Groups(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.config_options = ['group_allowed_role', 'group_channel_category', 'group_over_role','max_group']
 
     def db_get_config(self, guildID: int) -> List[Group]:

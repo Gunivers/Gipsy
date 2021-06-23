@@ -7,7 +7,6 @@ class Welcome(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.config_options = ["welcome_roles"]
     
     async def give_welcome_roles(self, member: discord.Member):

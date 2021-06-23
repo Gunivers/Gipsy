@@ -16,7 +16,6 @@ class XP(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.cooldown = 30
         self.minimal_size = 5
         self.spam_rate = 0.20

@@ -12,7 +12,6 @@ class Thanks(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.tasks = list()
         if bot.is_ready():
             self.schedule_tasks()

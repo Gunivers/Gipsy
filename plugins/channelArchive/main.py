@@ -8,7 +8,6 @@ class ChannelArchive(commands.Cog):
 
     def __init__(self, bot: Gunibot):
         self.bot = bot
-        self.file = ""
         self.config_options = ['archive_category','archive_duration']
         self.update_loop.start()
 

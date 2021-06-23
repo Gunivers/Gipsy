@@ -28,7 +28,6 @@ class Rss(commands.Cog):
         self.time_between_flows_check = 0.15 # seconds between two rss checks within a loop
         self.max_feeds_per_guild = 20
         
-        self.file = ""
         self.embed_color = discord.Color(6017876)
         self.loop_processing = False
         self.twitterAPI = twitter.Api(**bot.config['twitter'], tweet_mode="extended")

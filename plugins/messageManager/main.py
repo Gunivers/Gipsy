@@ -84,11 +84,20 @@ class MessageManager(commands.Cog):
 
         msg1 and msg2 need to be from the same channel"""
 
+        embed = discord.Embed(
+            description=await self.bot._(ctx.guild.id, 'message_manager.moveall.running', channel=channel.mention),
+            colour=discord.Colour.blue()
+        )
+        embed.set_footer(text=await self.bot._(ctx.guild.id, 'message_manager.moveall.footer', user=ctx.author.name))
+        await ctx.send(embed=embed)
+
+        channel = self.bot.get_channel(channel.id)
+
         # Permission check
         perm1: discord.Permissions = ctx.channel.permissions_for(ctx.guild.me)
         perm2: discord.Permissions = channel.permissions_for(ctx.guild.me)
 
-        if not (perm1.read_messages and perm1.read_message_history and perm1.manage_messages and perm2.read_messages and perm2.manage_webhooks):
+        if not (perm1.read_messages and perm1.read_message_history and perm1.manage_messages and perm2.manage_messages):
             await ctx.send(await self.bot._(ctx.guild.id, "message_manager.moveall.missing-perm"))
             self.bot.log.info(f"Alakon - /moveall: Missing permissions on guild \"{ctx.guild.name}\"")
             return
@@ -129,7 +138,7 @@ class MessageManager(commands.Cog):
             # Creates an embed to notify that the messages have been moved
             embed = discord.Embed(
                 description=await self.bot._(ctx.guild.id, 'message_manager.moveall.confirm', channel=channel.mention),
-                colour=discord.Colour(51711)
+                colour=discord.Colour.green()
             )
             embed.set_footer(text=await self.bot._(ctx.guild.id, 'message_manager.moveall.footer', user=ctx.author.name))
             await ctx.send(embed=embed)

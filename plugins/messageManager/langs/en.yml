@@ -5,6 +5,7 @@ en:
         footer: "Message moved by %{user}"
       moveall:
         channel-conflict: The two mentioned messages must be in the same chat
+        running: "Moving several mesages to %{channel} ..."
         confirm: "Several messages has been moved in %{channel}"
         footer: "Messages moved by %{user}"
         missing-perm: "Unable to do this :confused: Please check that I have permission to Read channel, Read message history, Manage messages in this channel, and Read channel, Manage webhooks in the targeted chat"

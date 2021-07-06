@@ -6,7 +6,8 @@ en:
       moveall:
         channel-conflict: The two mentioned messages must be in the same chat
         running: "Moving several mesages to %{channel} ..."
-        confirm: "Several messages has been moved in %{channel}"
+        confirm: "Several messages has been moved in %{channel}. [Click here](%{link}) to go to the conversation."
+        introduce: "The following conversation come from %{channel}. [Click here](%{link}) to go to the original conversation."
         footer: "Messages moved by %{user}"
         missing-perm: "Unable to do this :confused: Please check that I have permission to Read channel, Read message history, Manage messages in this channel, and Read channel, Manage webhooks in the targeted chat"
         no-msg: No message found

@@ -89,9 +89,16 @@ class MessageManager(commands.Cog):
             colour=discord.Colour.blue()
         )
         embed.set_footer(text=await self.bot._(ctx.guild.id, 'message_manager.moveall.footer', user=ctx.author.name))
-        await ctx.send(embed=embed)
+        confirmation = await ctx.send(embed=embed)
 
         channel = self.bot.get_channel(channel.id)
+
+        embed = discord.Embed(
+            description=await self.bot._(ctx.guild.id, 'message_manager.moveall.introduce', channel=ctx.channel.mention, link=confirmation.jump_url),
+            colour=discord.Colour.blue()
+        )
+        embed.set_footer(text=await self.bot._(ctx.guild.id, 'message_manager.moveall.footer', user=ctx.author.name))
+        introduction = await channel.send(embed=embed)
 
         # Permission check
         perm1: discord.Permissions = ctx.channel.permissions_for(ctx.guild.me)
@@ -137,11 +144,11 @@ class MessageManager(commands.Cog):
         if confirm:
             # Creates an embed to notify that the messages have been moved
             embed = discord.Embed(
-                description=await self.bot._(ctx.guild.id, 'message_manager.moveall.confirm', channel=channel.mention),
+                description=await self.bot._(ctx.guild.id, 'message_manager.moveall.confirm', channel=channel.mention, link=introduction.jump_url),
                 colour=discord.Colour.green()
             )
             embed.set_footer(text=await self.bot._(ctx.guild.id, 'message_manager.moveall.footer', user=ctx.author.name))
-            await ctx.send(embed=embed)
+            await confirmation.edit(embed=embed)
             await ctx.message.delete()
 
         await webhook.delete()

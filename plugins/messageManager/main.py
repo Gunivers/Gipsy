@@ -56,6 +56,22 @@ class MessageManager(commands.Cog):
     async def move(self, ctx: commands.Context, msg: discord.Message, channel: discord.TextChannel, *, confirm=True):
         """Move a message in another channel"""
 
+        channel = self.bot.get_channel(channel.id)
+
+
+        # Check permission
+        if not ctx.author.permissions_in(ctx.channel).manage_messages \
+                or not ctx.author.permissions_in(ctx.channel).read_messages \
+                or not ctx.author.permissions_in(ctx.channel).read_message_history \
+                or not ctx.author.permissions_in(channel).manage_messages:
+            embed = discord.Embed(
+                description=await self.bot._(ctx.guild.id, 'message_manager.permission'),
+                colour=discord.Colour.red())
+            await ctx.send(embed=embed)
+            return
+
+
+
         # Creates a webhook to resend the message to another channel
         webhook = await channel.create_webhook(name="Gunipy Hook")
         await moveMessage(msg, webhook)
@@ -84,30 +100,42 @@ class MessageManager(commands.Cog):
 
         msg1 and msg2 need to be from the same channel"""
 
-        embed = discord.Embed(
-            description=await self.bot._(ctx.guild.id, 'message_manager.moveall.running', channel=channel.mention),
-            colour=discord.Colour.blue()
-        )
+        channel = self.bot.get_channel(channel.id)
+
+        # Check bot permissions
+        perm1: discord.Permissions = ctx.channel.permissions_for(ctx.guild.me)
+        perm2: discord.Permissions = channel.permissions_for(ctx.guild.me)
+        if not (perm1.read_messages
+                and perm1.read_message_history
+                and perm1.manage_messages
+                and perm2.manage_messages):
+            await ctx.send(await self.bot._(ctx.guild.id, "message_manager.moveall.missing-perm"))
+            self.bot.log.info(f"Alakon - /moveall: Missing permissions on guild \"{ctx.guild.name}\"")
+            return
+
+         # Check member permissions
+        if not ctx.author.permissions_in(ctx.channel).manage_messages \
+                or not ctx.author.permissions_in(ctx.channel).read_messages \
+                or not ctx.author.permissions_in(ctx.channel).read_message_history \
+                or not ctx.author.permissions_in(channel).manage_messages:
+            embed = discord.Embed(
+                description=await self.bot._(ctx.guild.id, 'message_manager.permission'),
+                colour=discord.Colour.red())
+            await ctx.send(embed=embed)
+            return
+
+        # Send confirmation that the bot started to move messages
+        embed = discord.Embed(description=await self.bot._(ctx.guild.id, 'message_manager.moveall.running', channel=channel.mention), colour=discord.Colour.blue())
         embed.set_footer(text=await self.bot._(ctx.guild.id, 'message_manager.moveall.footer', user=ctx.author.name))
         confirmation = await ctx.send(embed=embed)
 
-        channel = self.bot.get_channel(channel.id)
-
+         # Send a little introduction in the destination channel
         embed = discord.Embed(
             description=await self.bot._(ctx.guild.id, 'message_manager.moveall.introduce', channel=ctx.channel.mention, link=confirmation.jump_url),
             colour=discord.Colour.blue()
         )
         embed.set_footer(text=await self.bot._(ctx.guild.id, 'message_manager.moveall.footer', user=ctx.author.name))
         introduction = await channel.send(embed=embed)
-
-        # Permission check
-        perm1: discord.Permissions = ctx.channel.permissions_for(ctx.guild.me)
-        perm2: discord.Permissions = channel.permissions_for(ctx.guild.me)
-
-        if not (perm1.read_messages and perm1.read_message_history and perm1.manage_messages and perm2.manage_messages):
-            await ctx.send(await self.bot._(ctx.guild.id, "message_manager.moveall.missing-perm"))
-            self.bot.log.info(f"Alakon - /moveall: Missing permissions on guild \"{ctx.guild.name}\"")
-            return
 
         # Checks that the messages are in the same channel
         if msg1.channel != msg2.channel:

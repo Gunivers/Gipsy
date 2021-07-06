@@ -4,7 +4,7 @@ en:
       give: "Here is for you %{to}: :cookie:\nFrom %{giver}"
       self: "Here is for you %{to}: :cookie:"
     hoster:
-      info: ":speech_balloon: Discord server: <https://discord.gg/RUPKTmC>\n:globe_with_meridians: Website: <https://clients.inovaperf.fr/aff.php?aff=514>\n:money_with_wings: 20% discount on the first purchase with the code `GUNIVERS`"
+      info: "Game server hosting service\n:speech_balloon: [Discord server](https://mtxserv.com/discord?utm_source=altearn_website_discord&utm_medium=website&utm_campaign=altearn_to_discord)\n:globe_with_meridians: [Website](https://mtxserv.com/fr/?utm_source=altearn_website&utm_medium=website&utm_campaign=altearn)"
     flipacoin:
       heads: "Heads!"
       tails: "Tails!"

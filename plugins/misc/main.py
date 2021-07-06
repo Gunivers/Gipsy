@@ -39,11 +39,13 @@ class Misc(commands.Cog):
     @commands.guild_only()
     async def hoster(self, ctx: MyContext):
         """Give all informations about the hoster"""
-        message = await self.bot._(ctx.guild.id, 'misc.hoster.info')
+        embed = discord.Embed(colour=discord.Colour.blue())
+        embed.add_field(name="mTx Serv", value=await self.bot._(ctx.guild.id, 'misc.hoster.info'))
+        embed.set_thumbnail(url="http://gunivers.net/wp-content/uploads/2021/07/Logo-mTxServ.png")
 
         # Créer un webhook qui prend l'apparence d'Inovaperf
-        webhook: discord.Webhook = await ctx.channel.create_webhook(name="Inovaperf")
-        await webhook.send(content=message, avatar_url="https://cdn.discordapp.com/icons/444578412829343754/8af3e47e5627b2c0f0eafb84c86b85b2.png")
+        webhook: discord.Webhook = await ctx.channel.create_webhook(name="mTx Serv")
+        await webhook.send(embed=embed, avatar_url="http://gunivers.net/wp-content/uploads/2021/07/Logo-mTxServ.png")
         await webhook.delete()
         await ctx.message.delete()
 

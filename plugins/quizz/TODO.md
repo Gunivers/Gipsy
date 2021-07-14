@@ -1,4 +1,4 @@
-### QuiPauQuizz (oskour)
+### GuniPauQuizz (oskour)
 - [ ] Message d'aide
     - [X] quizz start
     - [ ] quizz themes
@@ -7,7 +7,7 @@
 - [X] Gérer les joueurs qui sortent avant le début du quizz
 - [X] Lancer le quizz
 - [X] Gérer l'attente de toute les réponses des joueurs
-- [ ] Gérer la réponse à la question
+- [X] Gérer la réponse à la question
 - [ ] Gérer le décompte des points
 - [ ] Gérer la continuitée des questions
 - [ ] Gérer les joueurs qui sortent pendant la partie

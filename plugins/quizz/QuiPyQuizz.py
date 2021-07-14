@@ -12,14 +12,14 @@ class QuiPyQuizz:
 
     @staticmethod
     def request_questions(quizz):
-        params = {'quiz': str(quizz)}
+        params = {'quiz': str(quizz)}  # Payload
         r = requests.get(url="https://quipoquiz.com/module/sed/quiz/fr/start_quiz.snc", params=params)
         paulaod = json.loads(r.text)
         return paulaod['questions']
 
     @staticmethod
     def request_awnser(uid_variation, question_id, awnser: str):
-        params = {'quiz': uid_variation,
+        params = {'quiz': uid_variation,  # Payload
                   'answer': awnser.lower(),
                   'question': question_id}
         r = requests.get(url="https://quipoquiz.com/module/sed/quiz/fr/answer_question.snc", params=params)
@@ -28,7 +28,7 @@ class QuiPyQuizz:
 
     @staticmethod
     def request_stats(quizz):
-        params = {'quiz': str(quizz)}
+        params = {'quiz': str(quizz)}  # Payload
         r = requests.get(url="https://quipoquiz.com/module/sed/quiz/fr/end_quiz.snc", params=params)
         pauload = json.loads(r.text)
         return pauload["result"]["statistics"]

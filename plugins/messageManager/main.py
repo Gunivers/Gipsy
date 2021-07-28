@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from utils import Gunibot
+from typing import Union
 
 
 # Moves a message from its original channel to a parameterized channel using a given webhook
@@ -53,10 +54,15 @@ class MessageManager(commands.Cog):
 
     @commands.command(names="move", aliases=['mv'])
     @commands.guild_only()
-    async def move(self, ctx: commands.Context, msg: discord.Message, channel: discord.TextChannel, *, confirm=True):
+    async def move(self, ctx: commands.Context, msg: discord.Message, channel: Union[discord.TextChannel,str], *, confirm=True):
         """Move a message in another channel"""
 
-        channel = self.bot.get_channel(channel.id)
+        if type(channel) == str:
+            try:
+                channel = self.bot.get_channel(int(channel))
+            except:
+                await ctx.send(await self.bot._(ctx.guild.id, "message_manager.no-channel"))
+                return
 
 
         # Check permission
@@ -95,16 +101,22 @@ class MessageManager(commands.Cog):
 
     @commands.command(names="moveall", aliases=['mva'])
     @commands.guild_only()
-    async def moveall(self, ctx: commands.Context, msg1: discord.Message, msg2: discord.Message, channel: discord.TextChannel, *, confirm=True):
+    async def moveall(self, ctx: commands.Context, msg1: discord.Message, msg2: discord.Message, channel: Union[discord.TextChannel,str], *, confirm=True):
         """Move several messages in another channel
-
         msg1 and msg2 need to be from the same channel"""
 
-        channel = self.bot.get_channel(channel.id)
+        if type(channel) == str:
+            try:
+                channel = self.bot.get_channel(int(channel))
+            except:
+                await ctx.send(await self.bot._(ctx.guild.id, "message_manager.no-channel"))
+                return
+
 
         # Check bot permissions
         perm1: discord.Permissions = ctx.channel.permissions_for(ctx.guild.me)
         perm2: discord.Permissions = channel.permissions_for(ctx.guild.me)
+
         if not (perm1.read_messages
                 and perm1.read_message_history
                 and perm1.manage_messages
@@ -113,7 +125,7 @@ class MessageManager(commands.Cog):
             self.bot.log.info(f"Alakon - /moveall: Missing permissions on guild \"{ctx.guild.name}\"")
             return
 
-         # Check member permissions
+        # Check member permissions
         if not ctx.author.permissions_in(ctx.channel).manage_messages \
                 or not ctx.author.permissions_in(ctx.channel).read_messages \
                 or not ctx.author.permissions_in(ctx.channel).read_message_history \

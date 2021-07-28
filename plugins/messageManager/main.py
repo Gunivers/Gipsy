@@ -63,13 +63,29 @@ class MessageManager(commands.Cog):
             except:
                 await ctx.send(await self.bot._(ctx.guild.id, "message_manager.no-channel"))
                 return
+        if type(channel) != discord.TextChannel:
+            await ctx.send(await self.bot._(ctx.guild.id, "message_manager.no-channel"))
+            return
 
+        author = channel.guild.get_member(ctx.author.id)
+
+        # Check bot permissions
+        perm1: discord.Permissions = ctx.channel.permissions_for(ctx.guild.me)
+        perm2: discord.Permissions = channel.permissions_for(channel.guild.me)
+
+        if not (perm1.read_messages
+                and perm1.read_message_history
+                and perm1.manage_messages
+                and perm2.manage_messages):
+            await ctx.send(await self.bot._(ctx.guild.id, "message_manager.moveall.missing-perm"))
+            self.bot.log.info(f"Alakon - /move: Missing permissions on guild \"{ctx.guild.name}\"")
+            return
 
         # Check permission
         if not ctx.author.permissions_in(ctx.channel).manage_messages \
                 or not ctx.author.permissions_in(ctx.channel).read_messages \
                 or not ctx.author.permissions_in(ctx.channel).read_message_history \
-                or not ctx.author.permissions_in(channel).manage_messages:
+                or not author.permissions_in(channel).manage_messages:
             embed = discord.Embed(
                 description=await self.bot._(ctx.guild.id, 'message_manager.permission'),
                 colour=discord.Colour.red())
@@ -111,11 +127,16 @@ class MessageManager(commands.Cog):
             except:
                 await ctx.send(await self.bot._(ctx.guild.id, "message_manager.no-channel"))
                 return
+        if type(channel) != discord.TextChannel:
+            await ctx.send(await self.bot._(ctx.guild.id, "message_manager.no-channel"))
+            return
+
+        author = channel.guild.get_member(ctx.author.id)
 
 
         # Check bot permissions
         perm1: discord.Permissions = ctx.channel.permissions_for(ctx.guild.me)
-        perm2: discord.Permissions = channel.permissions_for(ctx.guild.me)
+        perm2: discord.Permissions = channel.permissions_for(channel.guild.me)
 
         if not (perm1.read_messages
                 and perm1.read_message_history
@@ -129,7 +150,7 @@ class MessageManager(commands.Cog):
         if not ctx.author.permissions_in(ctx.channel).manage_messages \
                 or not ctx.author.permissions_in(ctx.channel).read_messages \
                 or not ctx.author.permissions_in(ctx.channel).read_message_history \
-                or not ctx.author.permissions_in(channel).manage_messages:
+                or not author.permissions_in(channel).manage_messages:
             embed = discord.Embed(
                 description=await self.bot._(ctx.guild.id, 'message_manager.permission'),
                 colour=discord.Colour.red())

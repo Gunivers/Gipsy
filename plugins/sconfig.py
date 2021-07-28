@@ -167,7 +167,10 @@ class Sconfig(commands.Cog):
                     for extra in await self.bot.get_cog(module)._create_config(ctx):
                         temp += (f"[{extra[0]}]").ljust(max_length+1) + f" {extra[1]}\n"
                 res.append(temp)
-            await ctx.send("```ini\n" + "\n".join(res) + "```")
+
+            for i in res:
+                await ctx.send("```ini\n" + "\n" + i + "```")
+
         elif ctx.invoked_subcommand is None:
             await ctx.send(await self.bot._(ctx.guild.id, 'sconfig.option-notfound'))
 

@@ -18,9 +18,9 @@ class QuiPyQuizz:
         return paulaod['questions']
 
     @staticmethod
-    def request_awnser(uid_variation, question_id, awnser: str):
+    def request_answer(uid_variation, question_id, answer: str):
         params = {'quiz': uid_variation,  # Payload
-                  'answer': awnser.lower(),
+                  'answer': answer.lower(),
                   'question': question_id}
         r = requests.get(url="https://quipoquiz.com/module/sed/quiz/fr/answer_question.snc", params=params)
         pauload = json.loads(r.text)
@@ -70,9 +70,9 @@ class QuiPyQuizz:
             """
         else: return None
 
-    def get_awnser(self, quizz_id, question_id):
-        if quizz_id in self.data and question_id in self.data[quizz_id]['awnsers']:
-            return self.data[quizz_id]['awnsers'][question_id]
+    def get_answer(self, quizz_id, question_id):
+        if quizz_id in self.data and question_id in self.data[quizz_id]['answers']:
+            return self.data[quizz_id]['answers'][question_id]
             """
             Exemple:
             {

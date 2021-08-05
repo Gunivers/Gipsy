@@ -72,9 +72,10 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>Le lichen porte \u00e9galement le nom de champignon lich\u00e9nis\u00e9. Dans la majorit\u00e9 des cas, le champignon est un ascomyc\u00e8te.</p>\n"
       },
       "14181": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
-      "14179": {
+      "14179": {"real_answer": "1",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "14178": {
@@ -90,6 +91,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Le polypore aplani (Ganoderma applanatum) produit jusqu\u2019\u00e0 30 milliards de spores par jour et 5&nbsp;400 milliards de sports en une seule saison.</p>\n"
       },
       "14175": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -641,12 +643,15 @@
     },
     "answers": {
       "14080": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "14088": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "14089": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "14091": {
@@ -666,6 +671,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Le Chanel N\u00ba&nbsp;5 est le premier parfum cr\u00e9\u00e9 par la marque fran\u00e7aise. Chanel aurait choisi le cinqui\u00e8me \u00e9chantillon pr\u00e9sent\u00e9 par Ernest Beaux, et c\u2019est ainsi que le parfum a \u00e9t\u00e9 baptis\u00e9.</p>\n"
       },
       "14087": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "14092": {
@@ -1225,6 +1231,7 @@
     },
     "answers": {
       "4988": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4954": {
@@ -1240,15 +1247,19 @@
         "explanation": "La r\u00e9ponse est VRAI. Les puissantes pattes des sauterelles leur permettent de faire des bonds de 5&nbsp;\u00e0&nbsp;7&nbsp;m (16&nbsp;\u00e0&nbsp;23&nbsp;pi), soit l\u2019\u00e9quivalent de 200&nbsp;fois leur taille."
       },
       "4900": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8149": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "11693": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4948": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "11775": {
@@ -1318,33 +1329,43 @@
     },
     "answers": {
       "13966": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13967": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13964": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13955": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13960": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13956": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13959": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13954": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13962": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13958": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -1700,6 +1721,7 @@
     },
     "answers": {
       "6395": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13825": {
@@ -1719,9 +1741,11 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Les amphibiens sont ectothermes. \u00c0 l\u2019image des reptiles et des poissons, ce sont des animaux \u00e0 sang froid.</p>\n"
       },
       "13821": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13826": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13827": {
@@ -1733,6 +1757,7 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>Les premiers amphibiens sont apparus sur Terre il y a environ 400 millions d\u2019ann\u00e9es, alors que les premiers reptiles ont fait leur apparition il y a environ 300 millions d\u2019ann\u00e9es.</p>\n"
       },
       "13829": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -2296,6 +2321,7 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>L\u2019\u0153uvre a \u00e9t\u00e9 vendue 4 000 pesos \u00e0 l\u2019Institut national des Beaux-Arts de Mexico, en 1947.&nbsp;</p>\n"
       },
       "13694": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13692": {
@@ -2303,9 +2329,11 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>La toile, repr\u00e9sentant des melons dans des teintes de rouge et de vert, a \u00e9t\u00e9 compl\u00e9t\u00e9e en 1954, seulement huit jours avant la mort de la c\u00e9l\u00e8bre peintre.</p>\n"
       },
       "13686": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13691": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13695": {
@@ -2595,6 +2623,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Il existait une foule de mod\u00e8les, petits et grands, du Faucon Millenium. Dans l\u2019\u00c9pisode V, les concepteurs avaient con\u00e7u une r\u00e9plique presque grandeur nature du cockpit.&nbsp;</p>\n"
       },
       "13593": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13584": {
@@ -2606,9 +2635,11 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>Le c\u00e9l\u00e8bre ma\u00eetre Jedi a 900 ans lorsqu\u2019il meurt, vraisemblablement de vieillesse, sur la plan\u00e8te Dagobah.&nbsp;</p>\n"
       },
       "13596": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13591": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -2768,6 +2799,7 @@
     },
     "answers": {
       "13648": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13652": {
@@ -2783,9 +2815,11 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>En 1966, Carmichael a parl\u00e9 du \u00ab&nbsp;Black Power&nbsp;\u00bb, lan\u00e7ant un mouvement qui pr\u00e9conisait l\u2019autod\u00e9fense, l\u2019autod\u00e9termination, le pouvoir \u00e9conomique et politique, et la fiert\u00e9 raciale.</p>\n"
       },
       "13641": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13642": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13644": {
@@ -2797,6 +2831,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Cela s\u2019est plut\u00f4t produit \u00e0 Montgomery, en Alabama. Cet incident a provoqu\u00e9 le boycottage des autobus \u00e0 Montgomery, un des premiers grands \u00e9v\u00e8nements du mouvement des droits civiques.</p>\n"
       },
       "13649": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13645": {
@@ -3548,33 +3583,43 @@
     },
     "answers": {
       "13350": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13354": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13349": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13358": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13351": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13357": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13362": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13363": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13355": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13352": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -3734,33 +3779,43 @@
     },
     "answers": {
       "13325": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13326": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13322": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13328": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13327": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13332": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13331": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13319": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13323": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13329": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -4116,33 +4171,43 @@
     },
     "answers": {
       "13184": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13185": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13196": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13190": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3757": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13193": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13186": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13187": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13189": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10461": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -4800,6 +4865,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Les rongeurs peuvent se noyer, mais certains savent nager, comme les castors, qui sont semi-aquatiques. Les rats peuvent \u00e9galement patauger jusqu\u2019\u00e0 trois jours.</p>\n"
       },
       "13047": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13043": {
@@ -4815,15 +4881,19 @@
         "explanation": "La r\u00e9ponse est VRAI. La gerboise combat la s\u00e9cheresse du d\u00e9sert en ne buvant presque pas. Elle extrait l\u2019eau des graines ou des plantes dont elle se&nbsp;nourrit."
       },
       "13037": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13035": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13044": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "13040": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -5375,33 +5445,43 @@
     },
     "answers": {
       "12831": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12832": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12834": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12835": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12839": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12833": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12836": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12827": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12825": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12837": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -5467,6 +5547,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Il a \u00e9t\u00e9 prononc\u00e9 en 1851 par l\u2019abolitionniste et d\u00e9fenseure des droits des femmes Sojourner Truth. En 1981, bell hooks a lanc\u00e9 son livre influent <em>Ain\u2019t I a Woman: Black Women and Feminism</em>.</p>\n"
       },
       "12865": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "7066": {
@@ -5478,6 +5559,7 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>Le 21 janvier 2017, des manifestants se sont r\u00e9unis partout dans le monde pour d\u00e9fendre des causes comme les droits des LGBTQIA+, les droits civiques et la libert\u00e9 de reproduction.</p>\n"
       },
       "12856": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12864": {
@@ -5493,6 +5575,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>C\u2019est Mary Wollstonecraft (m\u00e8re de l\u2019auteure Mary Shelley) qui a \u00e9crit l\u2019ouvrage publi\u00e9 en 1792. Elle y plaide en faveur d\u2019une \u00e9ducation \u00e9gale pour les hommes et les femmes.</p>\n"
       },
       "12860": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12866": {
@@ -5656,6 +5739,7 @@
     },
     "answers": {
       "12746": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12745": {
@@ -5667,6 +5751,7 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>Philosophe majeur du XVIIIe si\u00e8cle et fondateur du criticisme, l\u2019Allemand Emmanuel Kant publie son \u0153uvre phare en 1781.</p>\n"
       },
       "12735": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12739": {
@@ -5682,6 +5767,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>L\u2019\u0153uvre majeure de Georg Friedrich Haendel fut interpr\u00e9t\u00e9e pour la premi\u00e8re fois le 13 avril 1742 au Neal\u2019s Hall de Dublin. Son succ\u00e8s fut triomphal.&nbsp;</p>\n"
       },
       "12740": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12734": {
@@ -6045,33 +6131,43 @@
     },
     "answers": {
       "12604": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12589": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12601": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12597": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12596": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12603": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12602": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12598": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12592": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12605": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -7701,33 +7797,43 @@
     },
     "answers": {
       "12129": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12131": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12123": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12132": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12134": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12122": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12124": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12130": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12120": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "12126": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -11317,6 +11423,7 @@
     },
     "answers": {
       "11180": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "11176": {
@@ -11340,6 +11447,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Beckham n\u2019appara\u00eet que dans les images d\u2019archives du film de 2002.</p>\n"
       },
       "11172": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "11190": {
@@ -11347,9 +11455,11 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Le film raconte le r\u00eave olympique du sauteur \u00e0 skis Michael \u00ab Eddie \u00bb Edwards. Avant le tournage, Taron Egerton, qui incarne Edwards, n\u2019avait jamais ski\u00e9.</p>\n"
       },
       "11184": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "11170": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -11803,33 +11913,43 @@
     },
     "answers": {
       "10961": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10953": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10949": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10971": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10957": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10951": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10965": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10969": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10967": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10963": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -11919,9 +12039,11 @@
         "explanation": "La r\u00e9ponse est FAUX. <p style=\"margin:0cm 0cm 8pt\"><span style=\"font-size:11pt\"><span style=\"line-height:107%\"><span style=\"font-family:Calibri,sans-serif\">En 2018, la prestation de Toy par Netta a valu \u00e0 Isra\u00ebl sa quatri\u00e8me victoire.</span></span></span></p>\n"
       },
       "10893": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10909": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10901": {
@@ -11987,33 +12109,43 @@
     },
     "answers": {
       "10923": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10917": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10941": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10921": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10931": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9675": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10944": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10929": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10919": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10933": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -12369,33 +12501,43 @@
     },
     "answers": {
       "10794": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10770": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10771": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10774": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10791": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10786": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10775": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10778": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10767": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10782": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -14515,33 +14657,43 @@
     },
     "answers": {
       "9874": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9849": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9868": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9852": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9855": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9853": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9648": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9860": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9859": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9869": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -14603,33 +14755,43 @@
     },
     "answers": {
       "9871": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9873": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9875": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9864": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9865": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9664": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9638": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9644": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9640": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9863": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -14691,33 +14853,43 @@
     },
     "answers": {
       "9658": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9847": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9846": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9646": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9866": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9652": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9660": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9668": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9670": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9872": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -14779,33 +14951,43 @@
     },
     "answers": {
       "9666": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9850": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9862": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9854": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9856": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9857": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9851": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9858": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9870": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9861": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -14867,33 +15049,43 @@
     },
     "answers": {
       "10142": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10164": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10168": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10150": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10148": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10154": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10144": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10160": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10156": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10158": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -15543,6 +15735,7 @@
     },
     "answers": {
       "10019": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10017": {
@@ -15574,9 +15767,11 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>Il a chant\u00e9 <em>Under Pressure</em> avec Queen, <em>Tonight</em> avec Tina Turner et <em>Dancing in the Streets</em> avec Mick Jagger.</p>\n"
       },
       "9999": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "10013": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -15834,6 +16029,7 @@
     },
     "answers": {
       "9806": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9804": {
@@ -15841,6 +16037,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Albus Dumbledore \u00e9tait professeur de m\u00e9tamorphose avant d\u2019\u00eatre directeur de Poudlard.&nbsp;</p>\n"
       },
       "9790": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9795": {
@@ -15856,6 +16053,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Il intercepte toutes les lettres envoy\u00e9es par Hermione, Ron et Hagrid.&nbsp;</p>\n"
       },
       "9788": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9814": {
@@ -16145,6 +16343,7 @@
         "explanation": "La r\u00e9ponse est FAUX. <p>Louis IX (1214-1270), appel\u00e9 commun\u00e9ment Saint Louis, a \u00e9t\u00e9 canonis\u00e9 en 1297 par l\u2019\u00c9glise catholique.</p>\n"
       },
       "9917": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9919": {
@@ -17300,33 +17499,43 @@
     },
     "answers": {
       "9522": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9542": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9534": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9536": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9540": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9524": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9532": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9526": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9544": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9528": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -17780,27 +17989,35 @@
     },
     "answers": {
       "5160": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5182": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5214": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5180": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5152": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5178": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5198": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5248": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5218": {
@@ -17808,6 +18025,7 @@
         "explanation": "La r\u00e9ponse est VRAI. Le&nbsp;22&nbsp;septembre 1914, deux croiseurs allemands entrent dans le port de Papeete. Ils bombardent et coulent la canonni\u00e8re fran\u00e7aise <i>Z\u00e9l\u00e9e</i> et endommagent les fortifications et des b\u00e2timents de la&nbsp;ville."
       },
       "5172": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -17869,9 +18087,11 @@
     },
     "answers": {
       "1759": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1771": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1725": {
@@ -17879,9 +18099,11 @@
         "explanation": "La r\u00e9ponse est VRAI. Les pattes du harfang sont recouvertes de plumes. Cette protection l\u2019aide \u00e0 maintenir sa temp\u00e9rature corporelle entre 38 et 40&nbsp;\u00b0C (100 et 104&nbsp;\u00b0F), m\u00eame par des froids aussi extr\u00eames que -50&nbsp;\u00b0C&nbsp;(-58&nbsp;\u00b0F)."
       },
       "5633": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "9064": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1723": {
@@ -17893,6 +18115,7 @@
         "explanation": "La r\u00e9ponse est FAUX. Les lamantins d\u00e9testent l\u2019eau froide. Ils vivent dans la ceinture intertropicale, l\u00e0 o\u00f9 les temp\u00e9ratures sont de plus 20&nbsp;\u00b0C (68&nbsp;\u00b0F)."
       },
       "1749": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1755": {
@@ -18550,33 +18773,43 @@
     },
     "answers": {
       "8147": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8161": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8181": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8133": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8191": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8177": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8107": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8103": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8173": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8143": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -18638,6 +18871,7 @@
     },
     "answers": {
       "4268": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4228": {
@@ -18649,6 +18883,7 @@
         "explanation": "La r\u00e9ponse est VRAI. D\u2019apr\u00e8s le <i>Dictionnaire de l\u2019Acad\u00e9mie fran\u00e7aise</i>, l\u2019\u00e9clair doit son nom au fait qu\u2019il est mang\u00e9 rapidement."
       },
       "4232": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4226": {
@@ -18656,15 +18891,19 @@
         "explanation": "La r\u00e9ponse est FAUX. C\u2019est la C\u00f4te d\u2019Ivoire qui est le plus grand producteur de f\u00e8ves de cacao avec environ 35&nbsp;% de la production mondiale."
       },
       "4222": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4238": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4244": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4256": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4248": {
@@ -18730,6 +18969,7 @@
     },
     "answers": {
       "4868": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4872": {
@@ -18737,6 +18977,7 @@
         "explanation": "La r\u00e9ponse est FAUX. C\u2019est le peintre Paul Gauguin qui a v\u00e9cu plusieurs ann\u00e9es sur l\u2019\u00eele de Tahiti et qui y a peint de nombreuses toiles."
       },
       "4856": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4840": {
@@ -18744,9 +18985,11 @@
         "explanation": "La r\u00e9ponse est FAUX. L\u2019\u00eele Sainte-H\u00e9l\u00e8ne, o\u00f9 est mort Napol\u00e9on, se trouve au milieu de l\u2019oc\u00e9an Atlantique Sud, 1856&nbsp;km (1153&nbsp;mi) \u00e0 l\u2019ouest des c\u00f4tes nord-ouest de la Namibie."
       },
       "4888": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4882": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4854": {
@@ -18758,9 +19001,11 @@
         "explanation": "La r\u00e9ponse est VRAI. C\u2019est \u00e0 Madagascar que l\u2019on retrouve le l\u00e9mur catta. L\u2019isolement de cette grande \u00eele de l\u2019oc\u00e9an Indien, au large de l\u2019Afrique, a favoris\u00e9 le d\u00e9veloppement d\u2019une faune et une flore uniques au&nbsp;monde."
       },
       "4878": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4886": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -19508,33 +19753,43 @@
     },
     "answers": {
       "3485": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3495": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3453": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3473": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3477": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3451": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3457": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3497": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3471": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3449": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -20286,6 +20541,7 @@
         "explanation": "La r\u00e9ponse est VRAI. Ir\u00e8ne Curie, la fille de Pierre et Marie Curie, a obtenu le prix Nobel de chimie en 1935 (avec son mari Fr\u00e9d\u00e9ric Joliot) pour sa d\u00e9couverte de la radioactivit\u00e9 artificielle. En 1911, Marie Curie avait obtenu le prix Nobel de chimie pour ses travaux sur le polonium et le&nbsp;radium."
       },
       "6337": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6361": {
@@ -20297,12 +20553,15 @@
         "explanation": "La r\u00e9ponse est VRAI. Au d\u00e9but du 20e&nbsp;si\u00e8cle, les femmes n\u2019avaient le droit de voter dans aucun pays du monde \u00e0 l\u2019exception de la Nouvelle-Z\u00e9lande."
       },
       "6349": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6327": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6331": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6351": {
@@ -20314,6 +20573,7 @@
         "explanation": "La r\u00e9ponse est VRAI. <p>Durant 55&nbsp;ans, Jane Goodall a r\u00e9alis\u00e9 des \u00e9tudes sur les animaux sauvages dans leur environnement naturel. Ses d\u00e9couvertes sur le comportement des chimpanz\u00e9s ont profond\u00e9ment modifi\u00e9 notre compr\u00e9hension du monde&nbsp;animal.</p>\n"
       },
       "6325": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -22237,33 +22497,43 @@
     },
     "answers": {
       "3162": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3190": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3172": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3208": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3166": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3184": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3206": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3160": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3204": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "3180": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -22423,9 +22693,11 @@
     },
     "answers": {
       "1093": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1087": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1133": {
@@ -22441,6 +22713,7 @@
         "explanation": "La r\u00e9ponse est VRAI. Au cours de l\u2019histoire, la variole a tu\u00e9 plus de 300&nbsp;millions de personnes. Cette maladie infectieuse est arriv\u00e9e en Am\u00e9rique avec les Europ\u00e9ens. Les autochtones d\u2019Am\u00e9rique, qui n\u2019avaient aucun anticorps pour se d\u00e9fendre contre la variole, \u00e9taient extr\u00eamement vuln\u00e9rables \u00e0 cette maladie."
       },
       "1103": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1111": {
@@ -22448,6 +22721,7 @@
         "explanation": "La r\u00e9ponse est VRAI. Le paludisme, ou malaria, est une maladie infectieuse caus\u00e9e par un parasite du genre <i>Plasmodium</i> et transmise par la piq\u00fbre de certaines esp\u00e8ces de moustiques."
       },
       "1123": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1105": {
@@ -22455,6 +22729,7 @@
         "explanation": "La r\u00e9ponse est FAUX. La rougeole, responsable de la mort de plus 200&nbsp;millions de personnes depuis son apparition vers le 7e&nbsp;si\u00e8cle av.&nbsp;J.-C., s\u2019attaque principalement aux&nbsp;enfants."
       },
       "1095": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -23402,15 +23677,19 @@
         "explanation": "La r\u00e9ponse est FAUX. Le phare d\u2019Alexandrie, l\u2019une des Sept Merveilles du monde antique, a longtemps fonctionn\u00e9. Il a servi de guide aux marins pendant pr\u00e8s de dix-sept si\u00e8cles (du 3e&nbsp;si\u00e8cle av.&nbsp;J.-C. au 14e&nbsp;si\u00e8cle&nbsp;apr.&nbsp;J.-C.).&nbsp;"
       },
       "6616": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6602": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6604": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6650": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6644": {
@@ -23418,6 +23697,7 @@
         "explanation": "La r\u00e9ponse est FAUX. Les artistes \u00e9gyptiens \u00e9taient anonymes, au service des dieux et se transmettaient un savoir traditionnel, tandis que les artistes grecs \u00e9voluaient dans un contexte qui exaltait l\u2019individualisme et l\u2019originalit\u00e9."
       },
       "6646": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "6618": {
@@ -23429,6 +23709,7 @@
         "explanation": "La r\u00e9ponse est FAUX. Le calendrier de l\u2019\u00c9gypte antique \u00e9tait ax\u00e9 sur les fluctuations annuelles du Nil. Il avait comme but premier la r\u00e9gulation des travaux agricoles au cours de l\u2019ann\u00e9e. Les \u00c9gyptiens d\u00e9finissaient d\u2019ailleurs l\u2019ann\u00e9e comme \u00ab&nbsp;le temps n\u00e9cessaire pour une r\u00e9colte&nbsp;\u00bb."
       },
       "6612": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -24274,33 +24555,43 @@
     },
     "answers": {
       "4388": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4356": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4382": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4394": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4362": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4366": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4386": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4358": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4346": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4390": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -24464,9 +24755,11 @@
         "explanation": "La r\u00e9ponse est FAUX. Les Vikings sont originaires principalement de la Su\u00e8de, de la Norv\u00e8ge et du Danemark. Ils ont commenc\u00e9 \u00e0 peupler l\u2019Islande vers la fin du 9e&nbsp;si\u00e8cle."
       },
       "5775": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5759": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5783": {
@@ -24474,9 +24767,11 @@
         "explanation": "La r\u00e9ponse est VRAI. Dans la mythologie nordique, les Valkyries \u00e9taient des divinit\u00e9s guerri\u00e8res au service d\u2019Odin. Elles s\u2019occupaient de l\u2019\u00e2me des h\u00e9ros morts au combat."
       },
       "5803": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5797": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5789": {
@@ -24484,9 +24779,11 @@
         "explanation": "La r\u00e9ponse est FAUX. Les Vikings, comme la plupart des peuples m\u00e9di\u00e9vaux, vivaient dans un syst\u00e8me de castes. \u00c0 l\u2019\u00e9chelon inf\u00e9rieur se trouvaient les esclaves (g\u00e9n\u00e9ralement des prisonniers de&nbsp;guerre)."
       },
       "5785": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5763": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "5769": {
@@ -27492,15 +27789,19 @@
     },
     "answers": {
       "4612": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4524": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4534": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4572": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4586": {
@@ -27512,9 +27813,11 @@
         "explanation": "La r\u00e9ponse est VRAI. S\u2019il est aid\u00e9 par les courants d\u2019air ascendants, le pygargue \u00e0 t\u00eate blanche peut voler jusqu\u2019\u00e0 une altitude de 3000&nbsp;m (10&nbsp;000&nbsp;pi)."
       },
       "2398": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4574": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "4602": {
@@ -27522,6 +27825,7 @@
         "explanation": "La r\u00e9ponse est FAUX. \u00c0 l\u2019automne, le monarque quitte le nord de l\u2019Am\u00e9rique, o\u00f9 il est n\u00e9, pour aller au Mexique. Ce trajet de plus de 4000&nbsp;km (2500&nbsp;mi) est en fait beaucoup plus long, car le monarque ne vole pas en ligne droite. Heureusement, il profite de certains vents pour effectuer des vols plan\u00e9s."
       },
       "4578": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -28269,33 +28573,43 @@
     },
     "answers": {
       "1835": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1901": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1909": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1841": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1843": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1917": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1875": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1899": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1905": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "1913": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -28749,33 +29063,43 @@
     },
     "answers": {
       "660": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "666": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "724": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "698": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "678": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "702": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "656": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "718": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "682": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "632": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -28837,12 +29161,15 @@
     },
     "answers": {
       "7559": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "7517": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "7583": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "7501": {
@@ -28850,12 +29177,15 @@
         "explanation": "La r\u00e9ponse est VRAI. Varsovie, la capitale de la Pologne, a \u00e9t\u00e9 d\u00e9truite \u00e0 plus de 80 % durant la Seconde Guerre mondiale. Depuis, elle a litt\u00e9ralement ressuscit\u00e9 de ses cendres."
       },
       "7507": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "7537": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "7531": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "7515": {
@@ -28863,9 +29193,11 @@
         "explanation": "La r\u00e9ponse est VRAI. Wellington, capitale de la Nouvelle-Z\u00e9lande, est la capitale situ\u00e9e le plus au sud&nbsp;: 41\u00b0&nbsp;18\u2032&nbsp;S 174\u00b0&nbsp;47\u2032&nbsp;E."
       },
       "7505": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "7591": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }
@@ -29711,33 +30043,43 @@
     },
     "answers": {
       "8706": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8692": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8750": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8742": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8772": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8758": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8720": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8734": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8756": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       },
       "8748": {
+        "real_answer": "0",
         "explanation": "La r\u00e9ponse est FAUX. "
       }
     }

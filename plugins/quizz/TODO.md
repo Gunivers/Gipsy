@@ -8,10 +8,10 @@
 - [X] Lancer le quizz
 - [X] Gérer l'attente de toute les réponses des joueurs
 - [X] Gérer la réponse à la question
-- [ ] Gérer le décompte des points
-- [ ] Gérer la continuitée des questions
-- [ ] Gérer les joueurs qui sortent pendant la partie
+- [X] Gérer le décompte des points
+- [X] Gérer la continuitée des questions
 - [ ] Gérer le leaderboard a la fin
+- [ ] Gérer les joueurs qui sortent pendant la partie
 
 ### BONUS TIME !
 - [ ] Faire une timeline avec des ❎ ✅ sur chaque question (pour des petits groupes)

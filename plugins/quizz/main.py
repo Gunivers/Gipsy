@@ -41,7 +41,14 @@ class Quizz(commands.Cog):
                          icon_url='https://scontent.fcdg1-1.fna.fbcdn.net/v/t1.6435-1/p148x148/48416529_2354370714793494_5893141918379933696_n.png?_nc_cat=110&ccb=1-3&_nc_sid=1eb0c7&_nc_ohc=AI2a2_Vn0c4AX9pPIK8&_nc_ht=scontent.fcdg1-1.fna&tp=30&oh=f8c88dae60c23d52fe81b8264031bf9f&oe=60D6AFB7')
         return embed
 
-    def ez_question_embed(self, party_id):  # Used to generate question embed lmao
+    def ez_players_list(self, party_id, waiting=False):
+        final_list = []
+        for player in self.partys[party_id]["players"]:
+            final_list.append(
+                f"- <@!{player}>: {self.partys[party_id]['players'][player]['score']}/10{' <a:hourgalss_XP:856611253219491910>' if waiting else ''}")
+        return final_list
+
+    def ez_question_embed(self, party_id, leaderboard=False, waiting=False):  # Used to generate question embed lmao
         curent_question_id = self.partys[party_id]['ids'][
             self.partys[party_id]['quizz']['current']]  # Choppe l'id de la question en cours
         raw_question = self.QPQ.get_question(self.partys[party_id]['quizz']['id'],
@@ -60,6 +67,11 @@ class Quizz(commands.Cog):
             pass
         embed.set_footer(text=party_id)
         embed = self.ez_set_author(embed, party_id)
+        if leaderboard:
+            players = self.partys[party_id]["players"]
+            embed.add_field(name=f"{len(players)} joueur{'s' if len(players) > 1 else ''}",
+                            value="\n".join(self.ez_players_list(party_id, waiting)))
+        self.update_timestamp(party_id)
         return embed
 
     def ez_answer_embed(self, party_id):
@@ -73,7 +85,7 @@ class Quizz(commands.Cog):
         embed = discord.Embed(
             title=f"Question {str(self.partys[party_id]['quizz']['current'] + 1)}/10",
             color=discord.Colour.random(),
-            description=clean_answer(raw_answer['explanation'])
+            description=f"{clean_answer(raw_question['question'])}\n{clean_answer(raw_answer['explanation'])}"
         )
 
         try:
@@ -83,15 +95,23 @@ class Quizz(commands.Cog):
             pass
         embed.set_footer(text=party_id)
         embed = self.ez_set_author(embed, party_id)
+
+        players = []
         for player in self.partys[party_id]["players"]:
-            if self.partys[party_id]["players"][player]["answer"] is raw_answer['real_answer']:
+            if self.partys[party_id]["players"][player]["answer"] == raw_answer['real_answer']:
                 self.partys[party_id]["players"][player]['score'] += 1
+            players.append(f"- <@!{player}>: {self.partys[party_id]['players'][player]['score']}/10")
+
+        embed.add_field(name=f"{len(players)} joueur{'s' if len(players) > 1 else ''}",
+                        value='\n'.join(players))
+        self.update_timestamp(party_id)
         return embed
 
     def everyone_answer(self, party_id):  # Test si tout le monde a répondu
         verif = True
         for player_id in self.partys[party_id]['players']:
             if self.partys[party_id]['players'][player_id]['answer'] is None: verif = False
+        self.update_timestamp(party_id)
         return verif
 
     async def send_question(self, party_id):  # Envoit les question a tout les joueurs
@@ -140,6 +160,7 @@ class Quizz(commands.Cog):
         embed.add_field(name=old_field.name, value="\n".join(new_field_value))
         channel: discord.TextChannel = await self.bot.fetch_channel(self.partys[party_id]['channel_id'])
         msg: discord.Message = await channel.fetch_message(self.partys[party_id]['msg_id'])
+        self.update_timestamp(party_id)
         return await msg.edit(embed=embed)
 
     async def player_leave_update(self, message: discord.Message, party_id, user):
@@ -159,6 +180,7 @@ class Quizz(commands.Cog):
         self.partys[party_id]['players'].pop(user.id)  # remove le joueur de la party
         embed.set_footer(text=party_id)
         embed = self.ez_set_author(embed, party_id)
+        self.update_timestamp(party_id)
         return await message.edit(embed=embed)  # Nouvel embed
 
     async def update_player_choice(self, party_id, player_id):
@@ -176,6 +198,7 @@ class Quizz(commands.Cog):
         embed.clear_fields()
         embed.add_field(name=field_name, value=new_value)
         await msg.edit(embed=embed)
+        self.update_timestamp(party_id)
 
     @tasks.loop(minutes=5)
     async def check_if_active(self):
@@ -195,7 +218,7 @@ class Quizz(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, pauload: discord.RawReactionActionEvent):
-        if pauload.emoji.name not in ["✅", "🆗", "❌", "⏹️", "⏭"]:
+        if pauload.emoji.name not in ["✅", "🆗", "❌", "⏹️", "⏭", "❎"]:
             return  # Si c'est pas les émojis du quizz alors on passe
         elif pauload.user_id == self.bot.user.id:
             return  # Si c'est le bot sa dégage
@@ -214,22 +237,19 @@ class Quizz(commands.Cog):
             return  # Sinon on passe
 
         party_id = str(party_id)
+        self.update_timestamp(party_id)
         if party_id not in self.partys: return
 
         if pauload.guild_id is not None:  # Si la réaction est sur un serveur
             if pauload.user_id == self.partys[party_id]['author_id']:  # Si celui qui a réagis est le créateur du quizz
                 if pauload.emoji.name == "🆗":  # 🆗 => Commencer le quizz
 
-                    self.update_timestamp(party_id)  # Update du timestamp
-
-                    for emoji in self.bot.emojis:
-                        if emoji.id == 856611253219491910: hourglass = emoji
-
                     embed = self.ez_question_embed(party_id)  # Génération de l'embed de question
                     prev_players_markdown = message.embeds[0].fields[0].value.split('\n')  # On récupère les joueurs
 
                     for n, player in enumerate(prev_players_markdown):
-                        prev_players_markdown[n] = player + f" {hourglass}"  # On rajoute le petit emote de sablier
+                        prev_players_markdown[
+                            n] = player + " <a:hourgalss_XP:856611253219491910>"  # On rajoute le petit emote de sablier
                     embed.add_field(name="{} joueur{}".format(len(prev_players_markdown),  # Nombre de joueurs
                                                               "s" if len(prev_players_markdown) > 1 else ''),
                                     # Plurierl ?
@@ -246,6 +266,16 @@ class Quizz(commands.Cog):
                     self.partys.pop(party_id)  # Supression dans le dict
                     await message.clear_reactions()  # Retire toute les réactions
                     return await message.edit(embed=embed)  # Feedback user
+
+                elif pauload.emoji.name == "⏭":
+                    if not self.everyone_answer(party_id):
+                        return await channel.send(
+                            f"<@{self.partys[party_id]['author_id']}> tout le monde n'a pas encore répondu !")
+                    embed = self.ez_question_embed(party_id, leaderboard=True, waiting=True)
+                    await message.edit(embed=embed)
+                    await self.send_question(party_id)  # On envoit les questions en mp
+                    for player in self.partys[party_id]["players"]:
+                        self.partys[party_id]["players"][player]["answer"] = None
             else:
                 if pauload.emoji.name == "✅":  # Un joueur join
                     user: discord.user = await self.bot.fetch_user(pauload.user_id)  # Récupère l'user
@@ -268,15 +298,18 @@ class Quizz(commands.Cog):
             user = await self.bot.fetch_user(pauload.user_id)  # Faut optimiser ct'e merde
 
             if pauload.emoji.name == "❎":
-                self.partys[party_id]['players'][pauload.user_id]['answer'] = 0  # Choisi la réponse négative
+                self.partys[party_id]['players'][pauload.user_id]['answer'] = '0'  # Choisi la réponse négative
+                await self.update_player_choice(party_id, pauload.user_id)
             elif pauload.emoji.name == "✅":
-                self.partys[party_id]['players'][pauload.user_id]['answer'] = 1  # Choisi la réponse positive
+                self.partys[party_id]['players'][pauload.user_id]['answer'] = '1'  # Choisi la réponse positive
                 await self.update_player_choice(party_id, pauload.user_id)
 
             if pauload.emoji.name in ["✅", "❎"]:
                 if self.everyone_answer(party_id):
                     await main_message.edit(embed=self.ez_answer_embed(party_id))
-                    return await self.send_answer(party_id)
+                    await self.send_answer(party_id)
+                    self.partys[party_id]['quizz']['current'] += 1
+                    return
 
             if pauload.emoji.name == "⏹️":  # Le joueur veut quitter le quizz
                 self.partys[party_id]['players'].pop(pauload.user_id)  # Retire le joueur
@@ -305,6 +338,7 @@ class Quizz(commands.Cog):
             return  # Sinon on passe
 
         party_id = str(party_id)
+        self.update_timestamp(party_id)
         if party_id not in self.partys: return
 
         if pauload.guild_id is not None and pauload.emoji.name == "✅" and self.partys[party_id][

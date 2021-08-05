@@ -20,6 +20,13 @@ def clean_answer(answer):
     return answer
 
 
+def dictionairy(leaders):  # Fonction qui permet de trier un dictionnaire en prenant les valeur par ordre croissant.
+    # J'ai péta ça sur stack overflow je sais pas comment sa marche mais sa marche
+    # Note that it will sort in lexicographical order
+    # For mathematical way, change it to float
+    return (sorted(leaders.items(), key=
+    lambda kv: (kv[1], kv[0])))
+
 class Quizz(commands.Cog):
     def __init__(self, bot: Gunibot):
         self.bot = bot
@@ -33,8 +40,7 @@ class Quizz(commands.Cog):
     def update_timestamp(self, party_id):
         self.partys[party_id]['timestamp'] = time.time()
 
-    def ez_set_author(self, embed: discord.Embed,
-                      party_id):  # Vu que c'est gros et qu'il faut le foutre partout j'en ai fait une fonction
+    def ez_set_author(self, embed: discord.Embed, party_id):  # Vu que c'est gros et qu'il faut le foutre partout j'en ai fait une fonction
         quizz_id = self.partys[party_id]['quizz']['id']  # Récupère l'id du quizz
         embed.set_author(name=self.QPQ.get_name(quizz_id),
                          url=self.QPQ.get_url(quizz_id),
@@ -105,6 +111,29 @@ class Quizz(commands.Cog):
         embed.add_field(name=f"{len(players)} joueur{'s' if len(players) > 1 else ''}",
                         value='\n'.join(players))
         self.update_timestamp(party_id)
+        return embed
+
+    def ez_summary_embed(self, party_id):
+        embed = discord.Embed(
+            title="Qizz terminé !",
+            color=discord.Colour.gold()
+        )
+        embed = self.ez_set_author(embed, party_id)
+        embed.set_footer(text=party_id)
+
+        players = {}
+        for player in self.partys[party_id]["players"]:
+            players[player] = self.partys[party_id]["players"][player]["score"]
+        players = dictionairy(players)
+        players.reverse()
+
+        final_value = ""
+        tracker = 0
+        for player, score in players:
+            places = ["🥇", "🥈", "🥉"]
+            final_value += f"- <@!{player}>: {str(score)} {places[tracker-1] if tracker < 4 else ''}\n"
+            tracker += 1
+        embed.add_field(name="Leaderboard", value=final_value)
         return embed
 
     def everyone_answer(self, party_id):  # Test si tout le monde a répondu
@@ -205,13 +234,13 @@ class Quizz(commands.Cog):
         timestamp = round(time.time())
         partys_to_pop = []
         for party_id in self.partys:
-            party = self.partys[party_id]
             if party_id != "0":
-                if party["timestamp"] < timestamp + 60 * 100000:
-                    channel = await self.bot.fetch_channel(party["channel_id"])
+                if self.partys[party_id]["timestamp"] < timestamp + 60 * 100000:
+                    channel = await self.bot.fetch_channel(self.partys[party_id]["channel_id"])
                     await channel.send(
-                        f"<@{party['author_id']}> ton quizz sur {self.QPQ.get_name(party['quizz']['id'])} s'est stopé car innactif !")
+                        f"<@{self.partys[party_id]['author_id']}> ton quizz sur {self.QPQ.get_name(self.partys[party_id]['quizz']['id'])} s'est stopé car innactif !")
                     partys_to_pop.append(party_id)
+                else: self.partys[party_id]["timestamp"] = timestamp
 
         for party_id in partys_to_pop:
             self.partys.pop(party_id)
@@ -271,11 +300,17 @@ class Quizz(commands.Cog):
                     if not self.everyone_answer(party_id):
                         return await channel.send(
                             f"<@{self.partys[party_id]['author_id']}> tout le monde n'a pas encore répondu !")
-                    embed = self.ez_question_embed(party_id, leaderboard=True, waiting=True)
-                    await message.edit(embed=embed)
-                    await self.send_question(party_id)  # On envoit les questions en mp
-                    for player in self.partys[party_id]["players"]:
-                        self.partys[party_id]["players"][player]["answer"] = None
+
+                    if self.partys[party_id]['quizz']['current'] < 10:
+                        embed = self.ez_question_embed(party_id, leaderboard=True, waiting=True)
+                        await message.edit(embed=embed)
+                        await self.send_question(party_id)  # On envoit les questions en mp
+                        for player in self.partys[party_id]["players"]:
+                            self.partys[party_id]["players"][player]["answer"] = None
+                    else:
+                        await message.clear_reactions()
+                        await message.edit(embed=self.ez_summary_embed(party_id))
+                        return self.partys.pop(party_id)
             else:
                 if pauload.emoji.name == "✅":  # Un joueur join
                     user: discord.user = await self.bot.fetch_user(pauload.user_id)  # Récupère l'user

@@ -27,6 +27,7 @@ def dictionairy(leaders):  # Fonction qui permet de trier un dictionnaire en pre
     return (sorted(leaders.items(), key=
     lambda kv: (kv[1], kv[0])))
 
+
 class Quizz(commands.Cog):
     def __init__(self, bot: Gunibot):
         self.bot = bot
@@ -115,7 +116,7 @@ class Quizz(commands.Cog):
 
     def ez_summary_embed(self, party_id):
         embed = discord.Embed(
-            title="Qizz terminé !",
+            title="Quizz terminé !",
             color=discord.Colour.gold()
         )
         embed = self.ez_set_author(embed, party_id)
@@ -249,7 +250,7 @@ class Quizz(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, pauload: discord.RawReactionActionEvent):
-        if pauload.emoji.name not in ["✅", "🆗", "❌", "⏹️", "⏭", "❎"]:
+        if pauload.emoji.name not in ["✅", "🆗", "❌", "⏹️", "⏭", "❎", "⬅️", "➡️"]:
             return  # Si c'est pas les émojis du quizz alors on passe
         elif pauload.user_id == self.bot.user.id:
             return  # Si c'est le bot sa dégage
@@ -261,6 +262,42 @@ class Quizz(commands.Cog):
         channel: discord.DMChannel = await self.bot.fetch_channel(pauload.channel_id)
         message: discord.Message = await channel.fetch_message(pauload.message_id)
         if len(message.embeds) == 0: return  # Vu que tout passe par embeds, si y'en a pas on passe
+
+        if pauload.emoji.name == "⬅️":
+            if '/' in message.embeds[0].footer.text:
+                raw_footer = message.embeds[0].footer.text.split('/')
+                embed = message.embeds[0]
+                embed.clear_fields()
+                if raw_footer[0] == '1':
+                    param = 1
+                else:
+                    param = int(raw_footer[0]) - 1
+
+                ids = [quizz_id for quizz_id in self.QPQ.data]
+                for n in range(15):
+                    embed.add_field(name=self.QPQ.data[ids[n + ((param-1) * 15)]]["name"],
+                                    value=f"ID du quizz: `{ids[n + ((param-1) * 15)]}`")
+                embed.set_footer(text=f"{param}/{len(self.QPQ.data) // 15}")
+                await message.remove_reaction("⬅️", pauload.member)
+                return await message.edit(embed=embed)
+
+        elif pauload.emoji.name == "➡️":
+            if '/' in message.embeds[0].footer.text:
+                raw_footer = message.embeds[0].footer.text.split('/')
+                embed = message.embeds[0]
+                embed.clear_fields()
+                if raw_footer[0] == str(len(self.QPQ.data) // 15):
+                    param = len(self.QPQ.data) // 15
+                else:
+                    param = int(raw_footer[0]) + 1
+
+                ids = [quizz_id for quizz_id in self.QPQ.data]
+                for n in range(15):
+                    embed.add_field(name=self.QPQ.data[ids[n + ((param-1) * 15)]]["name"],
+                                    value=f"ID du quizz: `{ids[n + ((param-1) * 15)]}`")
+                embed.set_footer(text=f"{param}/{len(self.QPQ.data) // 15}")
+                await message.remove_reaction("➡️", pauload.member)
+                return await message.edit(embed=embed)
 
         try:
             party_id = int(message.embeds[0].footer.text)  # On vérifie que y'est bien l'id de la party dans le footer
@@ -391,7 +428,7 @@ class Quizz(commands.Cog):
             )
             embed.add_field(name=f"`quizz`", value="Shows this message", inline=False)
             embed.add_field(name=f"`quizz start <quizz_id>`", value="Démarre un quizz", inline=False)
-            embed.add_field(name="`quizz theme`", value="Donne la liste des thèmes WIP", inline=False)
+            embed.add_field(name="`quizz themes`", value="Donne la liste des thèmes WIP", inline=False)
             return await ctx.send(embed=embed)
 
     @quizz_core.command(name="start")
@@ -430,6 +467,25 @@ class Quizz(commands.Cog):
         for emoji in emojis: await msg.add_reaction(emoji)
         self.quick_quizz_messages.append(msg.id)
         self.quick_quizz_channels.append(ctx.channel.id)
+
+    @quizz_core.command(name="themes")
+    async def _quizz_themes(self, ctx: MyContext):
+        embed = discord.Embed(
+            title="THEMES",
+            color=discord.Colour.random()
+        )
+        ids = [quizz_id for quizz_id in self.QPQ.data]
+        for n in range(15):
+            embed.add_field(name=self.QPQ.data[ids[n]]["name"],
+                            value=f"ID du quizz: `{ids[n]}`")
+        embed.set_footer(text=f"1/{len(self.QPQ.data)//15}")
+        msg = await ctx.send(embed=embed)
+        emojis = ["⬅️", "➡️"]
+        for emoji in emojis:
+            await msg.add_reaction(emoji)
+        self.quick_quizz_messages.append(msg.id)
+        self.quick_quizz_channels.append(ctx.channel.id)
+        return
 
 
 def setup(bot):

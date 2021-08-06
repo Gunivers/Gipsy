@@ -1,7 +1,7 @@
 ### GuniPauQuizz (oskour)
-- [ ] Message d'aide
+- [x] Messages d'aide
     - [X] quizz start
-    - [ ] quizz themes
+    - [x] quizz themes
 - [X] Lancer le quizz
 - [X] Gérer les joueurs qui entrent
 - [X] Gérer les joueurs qui sortent avant le début du quizz
@@ -10,8 +10,8 @@
 - [X] Gérer la réponse à la question
 - [X] Gérer le décompte des points
 - [X] Gérer la continuitée des questions
-- [ ] Gérer le leaderboard a la fin
-- [ ] Gérer les joueurs qui sortent pendant la partie
+- [x] Gérer le leaderboard a la fin
+- [x] Gérer les joueurs qui sortent pendant la partie
 
 ### BONUS TIME !
 - [ ] Faire une timeline avec des ❎ ✅ sur chaque question (pour des petits groupes)

@@ -344,6 +344,7 @@ class Quizz(commands.Cog):
                         await self.send_party_question(party_id)  # On envoit les questions en mp
                         for player in self.partys[party_id]["players"]:
                             self.partys[party_id]["players"][player]["answer"] = None
+                        await message.remove_reaction("⏭", pauload.member)
                     else:
                         await message.clear_reactions()
                         await message.edit(embed=self.ez_summary_embed(party_id))

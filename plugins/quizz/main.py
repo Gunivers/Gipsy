@@ -52,7 +52,7 @@ class Quizz(commands.Cog):
         final_list = []
         for player in self.partys[party_id]["players"]:
             final_list.append(
-                f"- <@!{player}>: {self.partys[party_id]['players'][player]['score']}/10{' <a:hourgalss_XP:856611253219491910>' if waiting else ''}")
+                f"- <@!{player}>: {self.partys[party_id]['players'][player]['score']}/10{' <a:hourgalss:873200874636337172>' if waiting else ''}")
         return final_list
 
     def ez_question_embed(self, party_id, leaderboard=False, waiting=False):  # Used to generate question embed lmao
@@ -224,7 +224,7 @@ class Quizz(commands.Cog):
         new_value = ""
         for line in field_value:
             if str(player_id) in line:
-                new_value += "\n{}".format(line.replace('<a:hourgalss_XP:856611253219491910>', '✅'))
+                new_value += "\n{}".format(line.replace('<a:hourgalss:873200874636337172>', '✅'))
             else:
                 new_value += "\n{}".format(line)
         embed.clear_fields()
@@ -316,7 +316,7 @@ class Quizz(commands.Cog):
                     prev_players_markdown = message.embeds[0].fields[0].value.split('\n')  # On récupère les joueurs
 
                     for n, player in enumerate(prev_players_markdown):
-                        prev_players_markdown[n] = player + " <a:hourgalss_XP:856611253219491910>"  # On rajoute le petit emote de sablier
+                        prev_players_markdown[n] = player + " <a:hourgalss:873200874636337172>"  # On rajoute le petit emote de sablier
                     embed.add_field(name="{} joueur{}".format(len(prev_players_markdown),  # Nombre de joueurs
                                                               "s" if len(prev_players_markdown) > 1 else ''),
                                     value='\n'.join(prev_players_markdown))  # Remise de la liste des joueurs
@@ -353,7 +353,7 @@ class Quizz(commands.Cog):
                 if pauload.emoji.name == "✅":  # Un joueur join
                     embed = message.embeds[0]
                     players = embed.fields[0].value + f'\n- <@!{pauload.user_id}> 0/10' \
-                                                      f'{" <a:hourgalss_XP:856611253219491910>" if self.partys[party_id]["started"] else ""}'  # Rajoute le joueur dans l'embed
+                                                      f'{" <a:hourgalss:873200874636337172>" if self.partys[party_id]["started"] else ""}'  # Rajoute le joueur dans l'embed
                     embed.clear_fields()  # Cleanup
 
                     temp = players.split('\n')

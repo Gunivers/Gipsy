@@ -178,29 +178,21 @@ class MessageManager(commands.Cog):
         # Ensures that msg1 is indeed the first message of the two
         if msg1.created_at > msg2.created_at:
             msg2, msg1 = msg1, msg2
-
-        # Retrieves the message list from msg1
-        msgList = await msg1.channel.history(limit=100, after=msg1).flatten()
-        if len(msgList) == 0:
-            await ctx.send(await self.bot._(ctx.guild.id, "message_manager.moveall.no-msg"))
-            return
-
+        
         # Webhook creation (common to all messages)
         webhook = await channel.create_webhook(name="Gunipy Hook")
+        
+        counter = 0
 
-        # Moves successively all the messages in the list until msg2 is reached
-        msg = msg1
-        await moveMessage(msg, webhook)
-
-        i = 0
-        msg = msgList[0]
-        while msg != msg2:
+        # Retrieves the message list from msg1 to msg2
+        async for msg in msg1.channel.history(limit=200, after=msg1, before=msg2, oldest_first=True):
             await moveMessage(msg, webhook)
-            i += 1
-            msg = msgList[i]
+            counter += 1
 
-        msg = msg2
-        await moveMessage(msg, webhook)
+        if counter == 0:
+            await ctx.send(await self.bot._(ctx.guild.id, "message_manager.moveall.no-msg"))
+            await webhook.delete()
+            return
 
         if confirm:
             # Creates an embed to notify that the messages have been moved

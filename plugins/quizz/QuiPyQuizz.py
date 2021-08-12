@@ -76,7 +76,7 @@ class QuiPyQuizz:
             """
             Exemple:
             {
-              "real_answer": "1",
+              "real_answer": true,
               "explanation": "La r\u00e9ponse est VRAI. <p>Ce sont les seuls champignons \u00e0 avoir encore des spores uniflagell\u00e9es.</p>\n"
             }
             """

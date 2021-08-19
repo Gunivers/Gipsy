@@ -6,9 +6,9 @@ import os
 class QuiPyQuizz:
     def __init__(self):
         try:
-            with open(f'{os.getcwd()}\plugins\quizz\data.json', 'r', encoding='utf-8') as f: self.data = json.load(f)
+            with open(f'data.json', 'r', encoding='utf-8') as f: self.data = json.load(f)
         except FileNotFoundError:
-            with open(f'{os.getcwd()}\data.json', 'r', encoding='utf-8') as f: self.data = json.load(f)
+            with open(f'data.json', 'r', encoding='utf-8') as f: self.data = json.load(f)
 
     @staticmethod
     def request_questions(quizz):
@@ -47,7 +47,7 @@ class QuiPyQuizz:
             """
             Exemple:
             {
-                "question": "<p>Les chytridiomyc\u00e8tes sont des champignons aquatiques ou semi-aquatiques.</p>\n",
+                "question": "<p>Les chytridiomycètes sont des champignons aquatiques ou semi-aquatiques.</p>\n",
                 "credit": "Wikipedia",
                 "image": "/sn_uploads/quizzes/13_wiki_Synchytrium_on_Erodium_cicutarium.jpg"
             }
@@ -61,7 +61,7 @@ class QuiPyQuizz:
             Exemple:
             {
               "14180": {
-                "question": "<p>Les chytridiomyc\u00e8tes sont des champignons aquatiques ou semi-aquatiques.</p>\n",
+                "question": "<p>Les chytridiomycètes sont des champignons aquatiques ou semi-aquatiques.</p>\n",
                 "credit": "Wikipedia",
                 "image": "/sn_uploads/quizzes/13_wiki_Synchytrium_on_Erodium_cicutarium.jpg"
               },
@@ -77,7 +77,7 @@ class QuiPyQuizz:
             Exemple:
             {
               "real_answer": true,
-              "explanation": "La r\u00e9ponse est VRAI. <p>Ce sont les seuls champignons \u00e0 avoir encore des spores uniflagell\u00e9es.</p>\n"
+              "explanation": "La réponse est VRAI. <p>Ce sont les seuls champignons à avoir encore des spores uniflagellées.</p>\n"
             }
             """
         else: return None

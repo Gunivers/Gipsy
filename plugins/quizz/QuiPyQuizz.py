@@ -5,10 +5,8 @@ import os
 
 class QuiPyQuizz:
     def __init__(self):
-        try:
-            with open(f'data.json', 'r', encoding='utf-8') as f: self.data = json.load(f)
-        except FileNotFoundError:
-            with open(f'data.json', 'r', encoding='utf-8') as f: self.data = json.load(f)
+        with open('plugins/quizz/data.json', 'r', encoding='utf-8') as f:
+            self.data = json.load(f)
 
     @staticmethod
     def request_questions(quizz):

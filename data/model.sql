@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `archive` (
 CREATE INDEX IF NOT EXISTS idx_archive_guild ON `archive` (`guild`);
 
 CREATE TABLE IF NOT EXISTS `wormhole_list` (
-  `name` PRIMARY TEXT NOT NULL,
+  `name` TEXT PRIMARY KEY NOT NULL,
   `privacy` BOOLEAN NOT NULL DEFAULT 0,
   `webhook_name` TEXT NOT NULL,
   `webhook_pp` BOOLEAN NOT NULL DEFAULT 0

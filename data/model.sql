@@ -118,6 +118,6 @@ CREATE TABLE IF NOT EXISTS `wormhole_channel` (
     `guildID` BIGINT NOT NULL,
     `type` TEXT NOT NULL,
     `webhookID` BIGINT NOT NULL,
-    `webhookTOKEN` TEXT NOT NULL,
+    `webhookTOKEN` TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_wormhole_channel ON `wormhole_channel` (`name`);

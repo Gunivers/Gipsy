@@ -15,6 +15,7 @@ en:
     invalid-emoji: Invalid emoji
     invalid-invite: Invalid invite
     invalid-trigger: Unknown dependency trigger type
+    invalid-permission: Unknown permission type
     invalid-type: "%{p} is not a recognised %{t} option"
     invalid-url: Invalid URL
     missing-arg: Oops, missing argument %{a}

@@ -15,6 +15,7 @@ fr:
     invalid-emoji: Emoji invalide
     invalid-invite: Invitation invalide
     invalid-trigger: Type de déclencheur de dépendance invalide
+    invalid-permission: Type de permission invalide
     invalid-type: "%{p} n'est pas de type %{t}"
     invalid-url: URL invalide
     missing-arg: Oups, il manque l'argument %{a}

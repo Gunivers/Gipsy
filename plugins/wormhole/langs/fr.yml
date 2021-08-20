@@ -1,4 +1,4 @@
-en:
+fr:
   wormhole:
     error:
       already-exists: "Le trou de ver %{name} existe déjà"

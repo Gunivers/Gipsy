@@ -8,66 +8,11 @@ import discord
 from discord.ext import commands
 from utils import Gunibot
 
+from classes.ActionType import ActionType
+from classes.TriggerType import TriggerType
+from classes.Dependency import Dependency, ConflictingCyclicDependencyError
+
 # /rolelink <grant/revoke> <role> when <get/loose> <one/all> <roles>
-
-
-class ActionType(commands.Converter):
-    types = ['grant', 'revoke']
-
-    def __init__(self, action: Union[str, int] = None):
-        if isinstance(action, str):
-            self.type = self.types.index(action)
-        elif isinstance(action, int):
-            self.type = action
-        else:
-            return
-        self.name = self.types[self.type]
-
-    async def convert(self, ctx: commands.Context, argument: str):
-        if argument in self.types:
-            return ActionType(argument)
-        raise commands.errors.BadArgument("Unknown dependency action type")
-
-
-class TriggerType(commands.Converter):
-    types = ['get-one', 'get-all', 'loose-one', 'loose-all']
-
-    def __init__(self, trigger: Union[str, int] = None):
-        if isinstance(trigger, str):
-            self.type = self.types.index(trigger)
-        elif isinstance(trigger, int):
-            self.type = trigger
-        else:
-            return
-        self.name = self.types[self.type]
-
-    async def convert(self, ctx: commands.Context, argument: str):
-        if argument in self.types:
-            return TriggerType(argument)
-        raise commands.errors.BadArgument("Unknown dependency trigger type")
-
-
-class Dependency:
-    def __init__(self, action: ActionType, target_role: int, trigger: TriggerType, trigger_roles: List[int], guild: int):
-        self.action = action
-        self.target_role = target_role
-        self.trigger = trigger
-        self.trigger_roles = trigger_roles
-        self.b_trigger_roles = dumps(trigger_roles)
-        self.guild = guild
-        self.id = None
-
-    def to_str(self, useID: bool = True) -> str:
-        triggers = ' '.join([f'<@&{r}>' for r in self.trigger_roles])
-        target = f'<@&{self.target_role}>'
-        ID = f"{self.id}. " if useID else ''
-        return f"{ID}{self.action.name} {target} when {self.trigger.name.replace('-', ' ')} of {triggers}"
-
-
-class ConflictingCyclicDependencyError(Exception):
-    """Used when a loop is found when analyzing a role dependencies system"""
-    pass
-
 
 class GroupRoles(commands.Cog):
 
@@ -219,10 +164,31 @@ class GroupRoles(commands.Cog):
 
     @rolelink_main.command(name="add")
     @commands.check(checks.is_server_manager)
-    async def rolelink_create(self, ctx: commands.Context, action: ActionType, target_role: discord.Role, when: args.constant('when'), trigger: TriggerType, trigger_roles: commands.Greedy[discord.Role]):
+    async def rolelink_create(self, ctx: commands.Context, action: ActionType, target_role: Union[discord.Role,str], when: args.constant('when'), trigger: TriggerType, trigger_roles: commands.Greedy[Union[discord.Role,str]]):
         """Create a new roles-link
         Actions can be either grant or revoke
         Trigger can be either get-one, get-all, loose-one or loose-all"""
+
+        if type(target_role) == str:
+            for guild in self.bot.guilds:
+                if guild.get_role(int(target_role)):
+                    target_role = guild.get_role(target_role)
+                    break
+
+        await ctx.send(target_role.guild.name)
+
+        for i in range(len(trigger_roles)):
+            await ctx.send(trigger_roles)
+            if type(trigger_roles[i]) == str:
+                await ctx.send(" -> " + trigger_roles[i])
+                for guild in self.bot.guilds:
+                    if guild.get_role(int(trigger_roles[i])):
+                        trigger_roles[i] = guild.get_role(int(trigger_roles[i]))
+                        break
+            await ctx.send(trigger_roles[i].guild.name)
+
+        
+
         if not trigger_roles:
             await ctx.send("Il vous faut au moins 1 rôle déclencheur !")
             return

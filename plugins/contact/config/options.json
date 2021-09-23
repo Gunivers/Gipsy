@@ -18,5 +18,10 @@
         "default": "object",
         "type": "text",
         "command": "contact_title"
+    },
+    "contact_message": {
+        "default": "Use the dropdown below to contact the team about a specific subject.",
+        "type": "text",
+        "command": "message"
     }
 }

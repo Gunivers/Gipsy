@@ -11,6 +11,7 @@ from discord.utils import snowflake_time
 from utils import Gunibot, MyContext
 import sqlite3
 
+from plugins.contact.bot.dropdown import Dropdown, DropdownView
 from bot.utils.sconfig import Sconfig
 
 
@@ -26,6 +27,18 @@ class Contact(commands.Cog):
         bot.get_command("config").add_command(self.config_contact_category)
         bot.get_command("config").add_command(self.config_contact_roles)
         bot.get_command("config").add_command(self.config_contact_title)
+
+    @commands.command(name="test")
+    @commands.guild_only()
+    async def colour(self, ctx: commands.Context):
+        """Sends a message with our dropdown containing colours"""
+
+        # Create the view containing our dropdown
+        view = DropdownView()
+
+        # Sending a message containing our view
+        message = self.bot.server_configs[ctx.guild.id]["contact_message"]
+        await ctx.send(message, view=view)
 
     @commands.command(name="contact_channel")
     async def config_contact_channel(self, ctx: MyContext, *, channel: discord.TextChannel):

@@ -1,3 +1,3 @@
-# FAQ
+# XP system
 
 Nothing here...

@@ -11,6 +11,7 @@ from nextcord.utils import snowflake_time
 from utils import Gunibot, MyContext
 import sqlite3
 
+from plugins.contact.bot.dropdown import Dropdown, DropdownView
 from bot.utils.sconfig import Sconfig
 
 
@@ -27,8 +28,24 @@ class Contact(commands.Cog):
         bot.get_command("config").add_command(self.config_contact_roles)
         bot.get_command("config").add_command(self.config_contact_title)
 
+    @commands.command(name="test")
+    @commands.guild_only()
+    async def colour(self, ctx: commands.Context):
+        """Sends a message with our dropdown containing colours"""
+
+        # Create the view containing our dropdown
+        view = DropdownView()
+
+        # Sending a message containing our view
+        message = "Coucou, ceci est un message de contact" #self.bot.server_configs[ctx.guild.id]["contact_message"]
+        channel = self.bot.server_configs[ctx.guild.id]["contact_channel"]
+        await channel.send(message, view=view)
+
     @commands.command(name="contact_channel")
     async def config_contact_channel(self, ctx: MyContext, *, channel: nextcord.TextChannel):
+        view = DropdownView()
+        message = "Coucou, ceci est un message de contact" #self.bot.server_configs[ctx.guild.id]["contact_message"]
+        await channel.send(message, view=view)
         await ctx.send(await Sconfig.edit_config(self, ctx.guild.id, "contact_channel", channel.id))
 
     @commands.command(name="contact_category")

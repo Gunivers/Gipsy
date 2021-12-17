@@ -29,7 +29,7 @@ from bot.utils.sconfig import Sconfig # It will import the global extension name
 
 Then, write a commande that will edit this config:
 ```python
-@commands.command(name="foo") # tell to discord.py that the next function is a discord command
+@commands.command(name="foo") # tell to nextcord.py that the next function is a discord command
 async def foo(self, ctx: MyContext, *, bar):
     await ctx.send(await Sconfig.edit_config(self, ctx.guild.id, "foo", bar)) # It will edit the config and send a confirmation message
 ```
@@ -37,5 +37,5 @@ async def foo(self, ctx: MyContext, *, bar):
 
 In the `__init__` function of you main plugin class, link your
 ```python
-bot.get_command("config").add_command(self.foo) # tell to discord.py that the command we defined is actually a sub-command of the "config" command
+bot.get_command("config").add_command(self.foo) # tell to nextcord.py that the command we defined is actually a sub-command of the "config" command
 ```

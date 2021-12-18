@@ -16,10 +16,12 @@ async def set_message(channel):
     message = "Coucou, ceci est un message de contact" #self.bot.server_configs[ctx.guild.id]["contact_message"]
     await channel.send(message, view=view)
 
-async def remove_previous(channel):
+async def remove_previous(bot, channel):
     async for msg in channel.history(limit=100):
-        return None
-        if msg.author == bot
+        if msg.author.id == bot.id:
+            await msg.delete()
+            return msg
+    return None
 
 
 async def update_message(channel):

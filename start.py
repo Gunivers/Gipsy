@@ -12,7 +12,7 @@ if py_version.major != 3 or py_version.minor < 9:
     print("Vous devez utiliser au moins Python 3.9 !", file=sys.stderr)
     sys.exit(1)
 
-# Getting global system list
+# Getting global systems list
 global_systems = []
 for system in os.listdir('./bot/utils/'):
     if os.path.isfile('./bot/utils/' + system) and system[-3:] == '.py':

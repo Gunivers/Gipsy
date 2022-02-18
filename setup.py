@@ -4,6 +4,8 @@ import sys
 from typing import List, Literal
 import pkg_resources
 
+from utils.terminalTable import TerminalTable
+
 
 python_required_major_version: int = 3
 
